@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>hex7c0</title>
+  <meta charset="utf-8" />
+  <meta name=description content="Index">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel=stylesheet type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:300">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <style>
+    body{background:#ffffff;height:100%;width:100%;margin:0;padding:0;border:0;font-family:'Open Sans',sans-serif;}
+    a{color:black;text-decoration:none;}
+    a:hover{color:#21759b;}
+    span{padding:1px 0;}
+    img{display:block;margin:auto;border-radius:5px;opacity:0.5;position:fixed;transition:border .4s linear;}
+    h1{margin:0.70em auto;text-align:center;font-weight:normal;opacity:0.8;cursor:default;}
+    h5{font-size:0.8em;font-family:monospace;font-style:normal;}
+    ul{list-style:none;margin:auto;}
+    li{margin-top:15%;padding:20px 0;width:290px;height:80px;float:left;font-weight:100;text-align:center;letter-spacing:1px;text-transform:capitalize;font-variant:small-caps;opacity:1;-webkit-transition:opacity .3s ease-out;transition:opacity .3s ease-out;}
+    a:hover{text-decoration:underline;color:#21759b;}
+    .fade{opacity:0.2;-webkit-transition:opacity .3s ease-out;-moz-transition:opacity .3s ease-out;-ms-transition:opacity .3s ease-out;-o-transition:opacity .3s ease-out;transition:opacity .3s ease-out;}
+    .boom{height:5px;width:5px;position:absolute;background:red;border-radius:50%;}
+    .game{background:gray;position:relative;opacity:0.4;}
+    #logo{width:95px;height:118px;margin:auto;-webkit-perspective:250;perspective:250;}
+    #bar{height:1px;width:1px;}
+    #upper{height:5px;width:20px;}
+    #lateral{height:20px;width:5px;}
+    #footer{position:fixed;bottom:20px;width:100%;cursor:text;margin:auto;font-style:italic;}
+    #footer>span{text-align:center;display:block;font-size:16px;}
+    #footer a:hover{text-decoration:underline;}
+    h1{font-size:2em;}
+    ul{width:900px;}
+    li{font-size:22px;}
+    @media screen and (-webkit-min-device-pixel-ratio:2), (min--moz-device-pixel-ratio:2), (-o-min-device-pixel-ratio:2), (min-device-pixel-ratio:2){
+      h1{font-size:6em;}
+      ul{width:300px;}
+      li{font-size:72px;}
+      #footer{display:none;}
+      #logo{width:90px;height:120px;
+    }
+  </style>
+</head>
+<body>
+  <div id="upper" class="game">
+    <div id="bar" class="game"></div>
+  </div>
+  <div id="lateral" class="game">
+    <div id="bar" class="game"></div>
+  </div>
+  <h1>Welcome</h1>
+  <div id="nav">
+    <ul>
+      <li>
+        <a href="https://github.com/hex7c0">GitHub</a>
+      </li>
+      <li>
+        <a href="mailto:hex7c0@gmail.com">Email</a>
+      </li>
+      <li>
+        <a href="http://hex7c0.tk/signature.asc.txt">GPG Signature</a>
+      </li>
+    </ul>
+  </div>
+  <div id="logo">
+    <img id="stan" src="stan.gif" height="118" width="95">
+  </div>
+  <footer>
+    <div id="footer">
+      <span>
+        <script>
+          document.write('<h5>click anywhere to play</h5>');
+        </script>
+        <h5><noscript>sorry, you cannot play</noscript></h5>
+      </span>
+    </div>
+  </footer>
+  <script type="text/javascript">
+'use strict';
+
+var c = 0;
+$('body').height($(window).height());
+var middleX = $(window).width() / 2;
+var middleY = $(window).height() / 2;
+
+window.addEventListener('mousemove', function(e) {
+
+  $('#upper').css('left', e.clientX + 'px');
+  $('#upper>#bar').css('height', e.clientY + 'px');
+  $('#lateral').css('top', e.clientY + 'px');
+  $('#lateral>#bar').css('width', e.clientX + 'px');
+
+  var X, Y;
+  if (e.clientX < middleX) {
+    X = -(middleX - e.clientX) / 16;
+    var scale = -1;
+  } else {
+    X = +(e.clientX - middleX) / 16;
+    var scale = 1;
+  }
+  if (e.clientY < middleY) {
+    Y = +(middleY - e.clientY) / 12;
+  } else {
+    Y = -(e.clientY - middleY) / 12;
+  }
+  $('#stan').css('-webkit-transform',
+    'rotateY(' + X + 'deg) rotateX(' + Y + 'deg) scaleX(' + scale + ')');
+  $('#stan').css('transform',
+    'rotateY(' + X + 'deg) rotateX(' + Y + 'deg) scaleX(' + scale + ')');
+  $('#stan').css('box-shadow', (Y - X) / 8 + 'px ' + (Y - X) / 8 + 'px 2px');
+});
+
+$('body').click(
+  function(g) {
+
+    $('#nav').append(
+      '<div class="boom" id="' + c + '" style="left:' + g.clientX + 'px;top:'
+        + g.clientY + 'px"></div>');
+    if (c > 0) {
+      connect(c - 1, c++);
+    } else {
+      c++;
+    }
+  });
+
+$('li').hover(function() {
+
+  $(this).css('opacity', '1');
+  $('li').addClass('fade');
+}, function() {
+
+  $('li').removeClass('fade');
+  $(this).css('opacity', '');
+});
+$('#footer a').hover(function() {
+
+  $(this).css('opacity', '1');
+  $('li').addClass('fade');
+}, function() {
+
+  $('li').removeClass('fade');
+  $(this).css('opacity', '');
+});
+
+function connect(div1, div2) {
+
+  var off1 = getOffset(document.getElementById(div1));
+  var off2 = getOffset(document.getElementById(div2));
+  var x1 = off1.left + off1.width;
+  var y1 = off1.top + off1.height;
+  var x2 = off2.left + off2.width;
+  var y2 = off2.top;
+  var length = Math.sqrt(((x2 - x1) * (x2 - x1)) + ((y2 - y1) * (y2 - y1)));
+  var cx = ((x1 + x2) / 2) - (length / 2);
+  var cy = ((y1 + y2) / 2);
+  var angle = Math.atan2((y1 - y2), (x1 - x2)) * (180 / Math.PI);
+  $('#nav').append(
+    '<div class="line boom" style="left:' + cx + 'px;top:' + cy + 'px;width:'
+      + length + 'px;-moz-transform:rotate(' + angle
+      + 'deg);-webkit-transform:rotate(' + angle + 'deg);-o-transform:rotate('
+      + angle + 'deg);-ms-transform:rotate(' + angle + 'deg);transform:rotate('
+      + angle + 'deg);"/>');
+}
+
+function getOffset(el) {
+
+  var _x = 0;
+  var _y = 0;
+  var _w = el.offsetWidth | 0;
+  var _h = el.offsetHeight | 0;
+  while (el && !isNaN(el.offsetLeft) && !isNaN(el.offsetTop)) {
+    _x += el.offsetLeft - el.scrollLeft;
+    _y += el.offsetTop - el.scrollTop;
+    el = el.offsetParent;
+  }
+  return {
+    top: _y,
+    left: _x,
+    width: _w,
+    height: _h
+  };
+}
+  </script>
+</body>
