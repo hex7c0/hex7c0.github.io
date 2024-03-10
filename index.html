@@ -43,9 +43,9 @@
     @media screen and (-webkit-min-device-pixel-ratio:2), (min--moz-device-pixel-ratio:2), (-o-min-device-pixel-ratio:2), (min-device-pixel-ratio:2){
       h1{font-size:6em;}
       ul{width:300px;}
-      li{font-size:72px;}
+      li{font-size:60px;}
       #footer{display:none;}
-      #logo{width:90px;height:120px;
+      #logo{width:90px;height:120px;}
     }
   </style>
 </head>
@@ -56,7 +56,7 @@
   <div id="lateral" class="game">
     <div id="bar" class="game"></div>
   </div>
-  <h1>Welcome!</h1>
+  <h1>&nbsp;Welcome!&nbsp;</h1>
   <h2>Francesco Carnielli AKA <tt>hex7c0</tt></h2>
   <div id="nav">
     <ul>
@@ -72,7 +72,7 @@
     </ul>
   </div>
   <div id="logo">
-    <img id="stan" src="stan.gif" alt="stan gif" height="128" width="95">
+    <img id="stan" src="stan.gif" alt="stan gif" height="128" width="95"/>
   </div>
   <footer>
     <div id="footer">
@@ -80,7 +80,7 @@
         <script>
           document.write('<h5>click anywhere to play</h5>');
         </script>
-        <h5><noscript>sorry, you cannot play</noscript></h5>
+        <noscript><h5>sorry, you cannot play</h5></noscript>
       </span>
     </div>
   </footer>
@@ -94,10 +94,10 @@ const middleY = $(window).height() / 2;
 
 window.addEventListener('mousemove', function(e) {
 
-  $('#upper').css('left', e.clientX + 'px');
-  $('#upper>#bar').css('height', e.clientY + 'px');
-  $('#lateral').css('top', e.clientY + 'px');
-  $('#lateral>#bar').css('width', e.clientX + 'px');
+  $('#upper').css('left', `{e.clientX}px`);
+  $('#upper>#bar').css('height', `{e.clientY}px`);
+  $('#lateral').css('top', `{e.clientY}px`);
+  $('#lateral>#bar').css('width', `{e.clientX}px`);
 
   let X, Y, scale;
   if (e.clientX < middleX) {
@@ -112,10 +112,8 @@ window.addEventListener('mousemove', function(e) {
   } else {
     Y = -(e.clientY - middleY) / 12;
   }
-  $('#stan').css('-webkit-transform',
-    `rotateY({X}deg) rotateX({Y}deg) scaleX({scale})`);
-  $('#stan').css('transform',
-    'rotateY(' + X + 'deg) rotateX(' + Y + 'deg) scaleX(' + scale + ')');
+  $('#stan').css('-webkit-transform', `rotateY({X}deg) rotateX({Y}deg) scaleX({scale})`);
+  $('#stan').css('transform', 'rotateY(' + X + 'deg) rotateX(' + Y + 'deg) scaleX(' + scale + ')');
   $('#stan').css('box-shadow', (Y - X) / 8 + 'px ' + (Y - X) / 8 + 'px 2px');
 });
 
@@ -139,6 +137,7 @@ $('li').hover(function() {
   $('li').removeClass('fade');
   $(this).css('opacity', '');
 });
+
 $('#footer a').hover(function() {
   $(this).css('opacity', '1');
   $('li').addClass('fade');
