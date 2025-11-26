@@ -2,16 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>hex7c0 · Francesco Carnielli</title>
+  <title>Francesco Carnielli · hex7c0</title>
   <meta name="author" content="hex7c0" />
   <meta name="description" content="Personal index page for Francesco Carnielli AKA hex7c0." />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap"
-    rel="stylesheet"
-  />
+  <meta property="og:title" content="Francesco Carnielli · hex7c0" />
+  <meta property="og:description" content="Personal index page for Francesco Carnielli AKA hex7c0." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://hex7c0.github.io/" />
+  <meta name="theme-color" content="#020617" />
 
   <style>
     :root {
@@ -20,9 +21,9 @@
       --fg: #e5e7eb;
       --muted: #9ca3af;
       --accent: #38bdf8;
-      --accent-soft: rgba(56, 189, 248, 0.15);
+      --accent-soft: rgba(56, 189, 248, 0.18);
       --link-hover: #7dd3fc;
-      --font-sans: "Open Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       --radius-lg: 0.75rem;
       --radius-full: 999px;
       --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.75);
@@ -47,6 +48,8 @@
       color: var(--fg);
       display: flex;
       flex-direction: column;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
 
     main.page {
@@ -142,7 +145,7 @@
       text-decoration: none;
       color: var(--fg);
       opacity: 0.9;
-      background: radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.18), transparent 55%);
+      background: radial-gradient(circle at 0 0, var(--accent-soft), transparent 55%);
       cursor: pointer;
       white-space: nowrap;
       transition:
@@ -160,7 +163,7 @@
       inset: 0.2rem;
       border-radius: inherit;
       border: 1px solid rgba(148, 163, 184, 0.35);
-      opacity: 0.0;
+      opacity: 0;
       transition: opacity var(--transition-fast);
     }
 
@@ -204,6 +207,7 @@
         transform var(--transition-fast),
         box-shadow var(--transition-fast),
         opacity var(--transition-fast);
+      will-change: transform, box-shadow;
     }
 
     .avatar img:hover {
@@ -297,6 +301,19 @@
       box-shadow: 0 0 18px rgba(15, 23, 42, 0.95);
     }
 
+    @media (prefers-reduced-motion: reduce) {
+      .avatar img {
+        transition: opacity 120ms ease-out;
+        transform: none !important;
+        box-shadow: var(--shadow-soft) !important;
+      }
+
+      #upper,
+      #lateral {
+        display: none;
+      }
+    }
+
     @media (max-width: 640px) {
       main.page {
         padding-top: 3.5rem;
@@ -341,7 +358,7 @@
       </h2>
     </header>
 
-    <nav class="links" id="nav">
+    <nav class="links" id="nav" aria-label="Primary links">
       <ul>
         <li>
           <a href="https://github.com/hex7c0" rel="me noopener noreferrer">
@@ -349,7 +366,7 @@
           </a>
         </li>
         <li>
-          <a href="https://gitlab.com/hex7c0" rel="noopener noreferrer">
+          <a href="https://gitlab.com/hex7c0" rel="me noopener noreferrer">
             GitLab
           </a>
         </li>
@@ -373,6 +390,7 @@
         alt="Animated avatar"
         width="95"
         height="128"
+        loading="lazy"
       />
     </figure>
   </main>
@@ -412,11 +430,11 @@
         const y = event.clientY;
 
         // crosshair lines
-        upper.style.left = x + "px";
-        upperBar.style.height = y + "px";
+        upper.style.left = `${String(x)}px`;
+        upperBar.style.height = `${String(y)}px`;
 
-        lateral.style.top = y + "px";
-        lateralBar.style.width = x + "px";
+        lateral.style.top = `${String(y)}px`;
+        lateralBar.style.width = `${String(x)}px`;
 
         // avatar parallax/tilt
         let rotateX;
