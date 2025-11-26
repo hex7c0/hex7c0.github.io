@@ -1,188 +1,467 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-  <title>hex7c0</title>
   <meta charset="utf-8" />
+  <title>hex7c0 · Francesco Carnielli</title>
   <meta name="author" content="hex7c0" />
-  <meta name="description" content="Index">
+  <meta name="description" content="Personal index page for Francesco Carnielli AKA hex7c0." />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
-
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap"
+    rel="stylesheet"
+  />
 
   <style>
-    body{background:#ffffff;height:100%;width:100%;margin:0;padding:0;border:0;font-family:'Open Sans',sans-serif;}
-    a{color:black;text-decoration:none;opacity:0.9;}
-    a:hover{color:#21759b;}
-    span{padding:1px 0;}
-    img{display:block;margin:auto;border-radius:5px;opacity:0.5;position:fixed;transition:border .4s linear;}
-    h1,h2{margin:0.70em auto;text-align:center;font-weight:normal;opacity:0.9;cursor:default;}
-    h5{font-size:0.8em;font-family:monospace;font-style:normal;}
-    ul{list-style:none;margin:auto;}
-    li{margin-top:15%;padding:20px 0;width:290px;height:80px;float:left;font-weight:100;text-align:center;letter-spacing:1px;text-transform:capitalize;font-variant:small-caps;opacity:1;-webkit-transition:opacity .3s ease-out;transition:opacity .3s ease-out;}
-    a:hover{text-decoration:underline;color:#21759b;}
-    .fade{opacity:0.2;-webkit-transition:opacity .3s ease-out;-moz-transition:opacity .3s ease-out;-ms-transition:opacity .3s ease-out;-o-transition:opacity .3s ease-out;transition:opacity .3s ease-out;}
-    .boom{height:5px;width:5px;position:absolute;background:red;opacity:0.5;border-radius:50%;}
-    .game{background:gray;position:relative;opacity:0.4;}
-    #logo{width:95px;height:118px;margin:auto;-webkit-perspective:250;perspective:250;}
-    #bar{height:1px;width:1px;}
-    #upper{height:5px;width:20px;}
-    #lateral{height:20px;width:5px;}
-    #footer{position:fixed;bottom:20px;width:100%;cursor:text;margin:auto;font-style:italic;}
-    #footer>span{text-align:center;display:block;font-size:16px;}
-    #footer a:hover{text-decoration:underline;}
-    h1{font-size:2em;}
-    ul{width:900px;}
-    li{font-size:22px;}
-    @media screen and (-webkit-min-device-pixel-ratio:2), (min--moz-device-pixel-ratio:2), (-o-min-device-pixel-ratio:2), (min-device-pixel-ratio:2){
-      h1{font-size:6em;}
-      ul{width:300px;}
-      li{font-size:60px;}
-      #footer{display:none;}
-      #logo{width:90px;height:120px;}
+    :root {
+      --bg: #020617;
+      --bg-soft: #0b1120;
+      --fg: #e5e7eb;
+      --muted: #9ca3af;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.15);
+      --link-hover: #7dd3fc;
+      --font-sans: "Open Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --radius-lg: 0.75rem;
+      --radius-full: 999px;
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.75);
+      --transition-fast: 160ms ease-out;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: var(--font-sans);
+      background:
+        radial-gradient(circle at 10% 0%, #1e293b 0, transparent 55%),
+        radial-gradient(circle at 90% 0%, #0f766e 0, transparent 55%),
+        radial-gradient(circle at 50% 100%, #1f2937 0, transparent 55%),
+        linear-gradient(180deg, var(--bg-soft), var(--bg));
+      color: var(--fg);
+      display: flex;
+      flex-direction: column;
+    }
+
+    main.page {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 1.5rem 2rem;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      gap: 2.5rem;
+    }
+
+    .hero {
+      max-width: 640px;
+    }
+
+    .hero h1 {
+      margin: 0 0 0.25rem;
+      font-size: clamp(2.2rem, 3vw + 1rem, 3.1rem);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .hero h2 {
+      margin: 0;
+      font-size: clamp(1.1rem, 1.2vw + 0.9rem, 1.5rem);
+      font-weight: 300;
+      opacity: 0.9;
+    }
+
+    .hero .aka {
+      opacity: 0.7;
+      font-size: 0.9em;
+      margin: 0 0.4rem;
+    }
+
+    .hero code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
+        monospace;
+      padding: 0.12rem 0.45rem;
+      border-radius: var(--radius-full);
+      background: rgba(15, 23, 42, 0.82);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      font-size: 0.95em;
+    }
+
+    nav.links {
+      padding: 1.1rem 1.25rem;
+      border-radius: 999px;
+      background: linear-gradient(
+          135deg,
+          rgba(15, 23, 42, 0.9),
+          rgba(15, 23, 42, 0.95)
+        );
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    nav.links ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      justify-content: center;
+      align-items: center;
+    }
+
+    nav.links li {
+      margin: 0;
+      padding: 0;
+      transition: opacity var(--transition-fast);
+    }
+
+    nav.links a {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--fg);
+      opacity: 0.9;
+      background: radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.18), transparent 55%);
+      cursor: pointer;
+      white-space: nowrap;
+      transition:
+        background var(--transition-fast),
+        border-color var(--transition-fast),
+        color var(--transition-fast),
+        opacity var(--transition-fast),
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast);
+    }
+
+    nav.links a::after {
+      content: "";
+      position: absolute;
+      inset: 0.2rem;
+      border-radius: inherit;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      opacity: 0.0;
+      transition: opacity var(--transition-fast);
+    }
+
+    nav.links a:hover,
+    nav.links a:focus-visible {
+      outline: none;
+      background: radial-gradient(circle at 10% 0%, rgba(56, 189, 248, 0.35), transparent 65%);
+      border-color: var(--accent);
+      color: var(--link-hover);
+      opacity: 1;
+      transform: translateY(-1px);
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.85);
+    }
+
+    nav.links a:hover::after,
+    nav.links a:focus-visible::after {
+      opacity: 0.45;
+    }
+
+    nav.links li.fade {
+      opacity: 0.25;
+    }
+
+    .avatar {
+      margin: 0;
+      padding: 0.65rem;
+      border-radius: var(--radius-lg);
+      background: radial-gradient(circle at 20% 0%, rgba(56, 189, 248, 0.24), transparent 55%);
+      border: 1px solid rgba(30, 64, 175, 0.9);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .avatar img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      border-radius: calc(var(--radius-lg) - 0.35rem);
+      opacity: 0.96;
+      transform-origin: center center;
+      transition:
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast),
+        opacity var(--transition-fast);
+    }
+
+    .avatar img:hover {
+      opacity: 1;
+      box-shadow: 0 22px 50px rgba(15, 23, 42, 0.95);
+    }
+
+    footer.site-footer {
+      position: relative;
+      z-index: 1;
+      padding: 0.8rem 1.5rem 1.4rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    #game-hint {
+      display: inline-block;
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    .noscript-hint {
+      display: block;
+      margin-top: 0.4rem;
+      font-style: italic;
+      letter-spacing: 0.04em;
+    }
+
+    .game-line {
+      position: fixed;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    #upper {
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+
+    #lateral {
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 0;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+
+    .game-line__bar {
+      background: linear-gradient(to bottom, rgba(56, 189, 248, 0.85), transparent);
+      width: 2px;
+      height: 0;
+      box-shadow: 0 0 22px rgba(56, 189, 248, 0.68);
+    }
+
+    #lateral-bar {
+      background: linear-gradient(to right, rgba(56, 189, 248, 0.85), transparent);
+      width: 0;
+      height: 2px;
+    }
+
+    .boom {
+      position: fixed;
+      height: 8px;
+      width: 8px;
+      border-radius: var(--radius-full);
+      background: var(--accent);
+      box-shadow:
+        0 0 16px rgba(56, 189, 248, 0.8),
+        0 0 36px rgba(56, 189, 248, 0.32);
+      opacity: 0.9;
+    }
+
+    .line {
+      height: 2px;
+      background: rgba(148, 163, 184, 0.85);
+      transform-origin: 0 50%;
+      box-shadow: 0 0 18px rgba(15, 23, 42, 0.95);
+    }
+
+    @media (max-width: 640px) {
+      main.page {
+        padding-top: 3.5rem;
+      }
+
+      nav.links {
+        border-radius: 1.2rem;
+        padding-inline: 0.9rem;
+      }
+
+      nav.links ul {
+        gap: 0.25rem;
+      }
+
+      nav.links a {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.75rem;
+      }
+
+      .avatar {
+        max-width: 180px;
+      }
     }
   </style>
 </head>
 <body>
-  <div id="upper" class="game">
-    <div id="bar" class="game"></div>
+  <!-- game crosshair overlays -->
+  <div class="game-line" id="upper">
+    <div class="game-line__bar" id="upper-bar"></div>
   </div>
-  <div id="lateral" class="game">
-    <div id="bar" class="game"></div>
+  <div class="game-line" id="lateral">
+    <div class="game-line__bar" id="lateral-bar"></div>
   </div>
-  <h1>&nbsp;Welcome!&nbsp;</h1>
-  <h2>Francesco Carnielli AKA <tt>hex7c0</tt></h2>
-  <div id="nav">
-    <ul>
-      <li>
-        <a href="https://github.com/hex7c0">GitHub</a>
-      </li>
-      <li>
-        <a href="https://www.linkedin.com/in/francesco-carnielli/">LinkedIn</a>
-      </li>
-      <li>
-        <a href="mailto:francesco@carnielli.dev">Email</a>
-      </li>
-    </ul>
-  </div>
-  <div id="logo">
-    <img id="stan" src="stan.gif" alt="stan gif" height="128" width="95"/>
-  </div>
-  <footer>
-    <div id="footer">
-      <span>
-        <script>
-          document.write('<h5>click anywhere to play</h5>');
-        </script>
-        <noscript><h5>sorry, you cannot play</h5></noscript>
-      </span>
-    </div>
+
+  <main class="page">
+    <header class="hero">
+      <h1>Welcome</h1>
+      <h2>
+        Francesco Carnielli
+        <span class="aka">AKA</span>
+        <code>hex7c0</code>
+      </h2>
+    </header>
+
+    <nav class="links" id="nav">
+      <ul>
+        <li>
+          <a href="https://github.com/hex7c0" rel="me noopener noreferrer">
+            GitHub
+          </a>
+        </li>
+        <li>
+          <a href="https://gitlab.com/hex7c0" rel="noopener noreferrer">
+            GitLab
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/francesco-carnielli/" rel="noopener noreferrer">
+            LinkedIn
+          </a>
+        </li>
+        <li>
+          <a href="mailto:francesco@carnielli.dev">
+            Email
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <figure class="avatar">
+      <img
+        id="stan"
+        src="stan.gif"
+        alt="Animated avatar"
+        width="95"
+        height="128"
+      />
+    </figure>
+  </main>
+
+  <footer class="site-footer">
+    <noscript>
+      <span class="noscript-hint">JavaScript is disabled, the interaction layer is unavailable.</span>
+    </noscript>
   </footer>
-  <script type="text/javascript">
-'use strict';
 
-let c = 0;
-$('body').height($(window).height());
-const middleX = $(window).width() / 2;
-const middleY = $(window).height() / 2;
+  <script>
+    (function () {
+      "use strict";
 
-window.addEventListener('mousemove', function(e) {
+      const body = document.body;
+      const stan = document.getElementById("stan");
+      const nav = document.getElementById("nav");
+      const upper = document.getElementById("upper");
+      const upperBar = document.getElementById("upper-bar");
+      const lateral = document.getElementById("lateral");
+      const lateralBar = document.getElementById("lateral-bar");
+      const linkItems = Array.from(nav.querySelectorAll("li"));
 
-  $('#upper').css('left', `{e.clientX}px`);
-  $('#upper>#bar').css('height', `{e.clientY}px`);
-  $('#lateral').css('top', `{e.clientY}px`);
-  $('#lateral>#bar').css('width', `{e.clientX}px`);
+      let clickCount = 0;
+      let middleX = window.innerWidth / 2;
+      let middleY = window.innerHeight / 2;
 
-  let X, Y, scale;
-  if (e.clientX < middleX) {
-    X = -(middleX - e.clientX) / 16;
-    scale = -1;
-  } else {
-    X = +(e.clientX - middleX) / 16;
-    scale = 1;
-  }
-  if (e.clientY < middleY) {
-    Y = +(middleY - e.clientY) / 12;
-  } else {
-    Y = -(e.clientY - middleY) / 12;
-  }
-  $('#stan').css('-webkit-transform', `rotateY({X}deg) rotateX({Y}deg) scaleX({scale})`);
-  $('#stan').css('transform', 'rotateY(' + X + 'deg) rotateX(' + Y + 'deg) scaleX(' + scale + ')');
-  $('#stan').css('box-shadow', (Y - X) / 8 + 'px ' + (Y - X) / 8 + 'px 2px');
-});
+      function updateMiddle() {
+        middleX = window.innerWidth / 2;
+        middleY = window.innerHeight / 2;
+      }
 
-$('body').click(
-  function(g) {
+      window.addEventListener("resize", updateMiddle);
 
-    $('#nav').append(
-      '<div class="boom" id="' + c + '" style="left:' + g.clientX + 'px;top:'
-        + g.clientY + 'px"></div>');
-    if (c > 0) {
-      connect(c - 1, c++);
-    } else {
-      c++;
-    }
-  });
+      window.addEventListener("mousemove", function (event) {
+        const x = event.clientX;
+        const y = event.clientY;
 
-$('li').hover(function() {
-  $(this).css('opacity', '1');
-  $('li').addClass('fade');
-}, function() {
-  $('li').removeClass('fade');
-  $(this).css('opacity', '');
-});
+        // crosshair lines
+        upper.style.left = x + "px";
+        upperBar.style.height = y + "px";
 
-$('#footer a').hover(function() {
-  $(this).css('opacity', '1');
-  $('li').addClass('fade');
-}, function() {
-  $('li').removeClass('fade');
-  $(this).css('opacity', '');
-});
+        lateral.style.top = y + "px";
+        lateralBar.style.width = x + "px";
 
-function connect(div1, div2) {
+        // avatar parallax/tilt
+        let rotateX;
+        let rotateY;
+        let scaleX;
 
-  const off1 = getOffset(document.getElementById(div1));
-  const off2 = getOffset(document.getElementById(div2));
-  let x1 = off1.left + off1.width;
-  let y1 = off1.top + off1.height;
-  let x2 = off2.left + off2.width;
-  let y2 = off2.top;
-  let length = Math.sqrt(((x2 - x1) * (x2 - x1)) + ((y2 - y1) * (y2 - y1)));
-  let cx = ((x1 + x2) / 2) - (length / 2);
-  let cy = ((y1 + y2) / 2);
-  let angle = Math.atan2((y1 - y2), (x1 - x2)) * (180 / Math.PI);
-  $('#nav').append(
-    '<div class="line boom" style="left:' + cx + 'px;top:' + cy + 'px;width:'
-      + length + 'px;-moz-transform:rotate(' + angle
-      + 'deg);-webkit-transform:rotate(' + angle + 'deg);-o-transform:rotate('
-      + angle + 'deg);-ms-transform:rotate(' + angle + 'deg);transform:rotate('
-      + angle + 'deg);"/>');
-}
+        if (x < middleX) {
+          rotateY = -(middleX - x) / 16;
+          scaleX = -1;
+        } else {
+          rotateY = (x - middleX) / 16;
+          scaleX = 1;
+        }
 
-function getOffset(el) {
+        if (y < middleY) {
+          rotateX = (middleY - y) / 12;
+        } else {
+          rotateX = -(y - middleY) / 12;
+        }
 
-  let _x = 0;
-  let _y = 0;
-  let _w = el.offsetWidth | 0;
-  let _h = el.offsetHeight | 0;
-  while (el && !isNaN(el.offsetLeft) && !isNaN(el.offsetTop)) {
-    _x += el.offsetLeft - el.scrollLeft;
-    _y += el.offsetTop - el.scrollTop;
-    el = el.offsetParent;
-  }
-  return {
-    top: _y,
-    left: _x,
-    width: _w,
-    height: _h
-  };
-}
+        const shadowOffset = (rotateX - rotateY) / 8;
+
+        stan.style.transform =
+          "rotateY(" + rotateY + "deg) rotateX(" + rotateX + "deg) scaleX(" + scaleX + ")";
+        stan.style.boxShadow =
+          shadowOffset + "px " + shadowOffset + "px 22px rgba(15, 23, 42, 0.95)";
+      });
+
+      // link hover fading
+      linkItems.forEach(function (item) {
+        item.addEventListener("mouseenter", function () {
+          linkItems.forEach(function (li) {
+            li.classList.add("fade");
+          });
+          item.classList.remove("fade");
+        });
+
+        item.addEventListener("mouseleave", function () {
+          linkItems.forEach(function (li) {
+            li.classList.remove("fade");
+          });
+        });
+      });
+
+    })();
   </script>
 </body>
+</html>
