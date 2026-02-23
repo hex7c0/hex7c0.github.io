@@ -36,6 +36,30 @@
       box-sizing: border-box;
     }
 
+    /* Skip link: visible on keyboard focus */
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
+    .skip-link:focus {
+      left: 1rem;
+      top: 1rem;
+      width: auto;
+      height: auto;
+      padding: 0.4rem 0.75rem;
+      background: rgba(255,255,255,0.06);
+      border-radius: 6px;
+      z-index: 9999;
+      color: var(--fg);
+      text-decoration: none;
+      outline: 2px solid var(--accent);
+    }
+
     body {
       margin: 0;
       min-height: 100vh;
@@ -331,7 +355,7 @@
     <div class="game-line__bar" id="lateral-bar"></div>
   </div>
 
-  <main class="page">
+  <main id="main" class="page">
     <header class="hero">
       <h1>Welcome</h1>
       <h2>
@@ -344,36 +368,37 @@
     <nav class="links" id="nav" aria-label="Primary links">
       <ul>
         <li>
-          <a href="https://github.com/hex7c0" rel="me noopener noreferrer">
+          <a href="https://github.com/hex7c0" target="_blank" rel="me noopener noreferrer">
             GitHub
           </a>
         </li>
         <li>
-          <a href="https://gitlab.com/hex7c0" rel="me noopener noreferrer">
+          <a href="https://gitlab.com/hex7c0" target="_blank" rel="me noopener noreferrer">
             GitLab
           </a>
         </li>
         <li>
-          <a href="https://www.linkedin.com/in/francesco-carnielli/" rel="noopener noreferrer">
+          <a href="https://www.linkedin.com/in/francesco-carnielli/" target="_blank" rel="noopener noreferrer">
             LinkedIn
           </a>
         </li>
         <li>
-          <a href="mailto:francesco@carnielli.dev">
+          <a href="mailto:francesco@carnielli.dev" rel="noopener noreferrer">
             Email
           </a>
         </li>
       </ul>
     </nav>
 
-    <figure class="avatar">
+    <figure class="avatar" aria-hidden="false">
       <img
         id="stan"
         src="stan.gif"
-        alt="Animated avatar"
+        alt="Animated avatar of Francesco Carnielli"
         width="95"
         height="128"
         loading="lazy"
+        decoding="async"
       />
     </figure>
   </main>
@@ -385,7 +410,7 @@
   </footer>
 
   <script>
-    (function () {
+    (() => {
       "use strict";
 
       const stan = document.getElementById("stan");
