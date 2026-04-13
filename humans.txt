@@ -1,0 +1,13 @@
+/* TEAM */
+
+CTO: Francesco Carnielli
+Site: https://francesco.carnielli.dev
+Contact: francesco [at] carnielli.dev
+LinkedIn: linkedin.com/in/francesco-carnielli
+Location: Verona, Italy
+
+/* SITE */
+
+Standards: HTML5, CSS3
+Software: GitHub Pages
+Language: English

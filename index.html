@@ -3,16 +3,53 @@
 <head>
   <meta charset="utf-8" />
   <title>Francesco Carnielli · hex7c0</title>
-  <meta name="author" content="hex7c0" />
+  <meta name="author" content="Francesco Carnielli" />
   <meta name="description" content="Personal index page for Francesco Carnielli AKA hex7c0." />
+  <meta name="keywords" content="CTO, engineering leader, technical due diligence, AI strategy, team scaling, EMEA, remote" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="canonical" href="https://francesco.carnielli.dev/" />
 
   <meta property="og:title" content="Francesco Carnielli · hex7c0" />
-  <meta property="og:description" content="Personal index page for Francesco Carnielli AKA hex7c0." />
+  <meta property="og:description" content="CTO helping startups and scale-ups build, scale, and fix engineering organisations. 15+ years, 70+ engineers, EUR 100M+ GMV." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://hex7c0.github.io/" />
+  <meta property="og:url" content="https://francesco.carnielli.dev/" />
   <meta name="theme-color" content="#020617" />
+  <link rel="author" href="/humans.txt" />
+
+  <!-- JSON-LD structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Francesco Carnielli",
+    "jobTitle": "CTO",
+    "url": "https://francesco.carnielli.dev",
+    "email": "francesco@carnielli.dev",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Verona",
+      "addressCountry": "IT"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/in/francesco-carnielli/",
+      "https://github.com/hex7c0",
+      "https://gitlab.com/hex7c0",
+      "https://www.malt.com/profile/francescocarnielli"
+    ],
+    "knowsAbout": ["Software Engineering", "Team Scaling", "Technical Due Diligence", "AI/ML Strategy", "E-Commerce"],
+    "alumniOf": [
+      {
+        "@type": "EducationalOrganization",
+        "name": "Stanford University Graduate School of Business"
+      },
+      {
+        "@type": "EducationalOrganization",
+        "name": "University of Verona"
+      }
+    ]
+  }
+  </script>
 
   <style>
     :root {
@@ -30,35 +67,7 @@
       --transition-fast: 160ms ease-out;
     }
 
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-    }
-
-    /* Skip link: visible on keyboard focus */
-    .skip-link {
-      position: absolute;
-      left: -9999px;
-      top: auto;
-      width: 1px;
-      height: 1px;
-      overflow: hidden;
-    }
-
-    .skip-link:focus {
-      left: 1rem;
-      top: 1rem;
-      width: auto;
-      height: auto;
-      padding: 0.4rem 0.75rem;
-      background: rgba(255,255,255,0.06);
-      border-radius: 6px;
-      z-index: 9999;
-      color: var(--fg);
-      text-decoration: none;
-      outline: 2px solid var(--accent);
-    }
+    *, *::before, *::after { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -81,18 +90,17 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
       padding: 3rem 1.5rem 2rem;
-      text-align: center;
       position: relative;
       z-index: 1;
       gap: 2.5rem;
     }
 
+    /* ── Hero ── */
     .hero {
       max-width: 640px;
+      text-align: center;
     }
-
     .hero h1 {
       margin: 0 0 0.25rem;
       font-size: clamp(2.2rem, 3vw + 1rem, 3.1rem);
@@ -100,21 +108,22 @@
       letter-spacing: 0.06em;
       text-transform: uppercase;
     }
-
     .hero h2 {
-      margin: 0;
-      font-size: clamp(1.1rem, 1.2vw + 0.9rem, 1.5rem);
+      margin: 0 0 0.6rem;
+      font-size: clamp(1rem, 1.2vw + 0.8rem, 1.35rem);
       font-weight: 300;
       opacity: 0.9;
     }
-
-    .hero .aka {
-      opacity: 0.7;
-      font-size: 0.9em;
-      margin: 0 0.4rem;
+    .hero .tagline {
+      margin: 0;
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.55;
+      max-width: 520px;
+      margin-inline: auto;
     }
 
-    .hero code {
+        .hero code {
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
         monospace;
       padding: 0.12rem 0.45rem;
@@ -124,42 +133,25 @@
       font-size: 0.95em;
     }
 
+    /* ── Nav pill ── */
     nav.links {
       padding: 1.1rem 1.25rem;
       border-radius: 999px;
-      background: linear-gradient(
-          135deg,
-          rgba(15, 23, 42, 0.9),
-          rgba(15, 23, 42, 0.95)
-        );
+      background: linear-gradient(135deg, rgba(15,23,42,0.9), rgba(15,23,42,0.95));
       border: 1px solid rgba(148, 163, 184, 0.45);
       box-shadow: var(--shadow-soft);
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
     }
-
     nav.links ul {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      justify-content: center;
-      align-items: center;
+      margin: 0; padding: 0; list-style: none;
+      display: flex; flex-wrap: wrap; gap: 0.4rem;
+      justify-content: center; align-items: center;
     }
-
-    nav.links li {
-      margin: 0;
-      padding: 0;
-      transition: opacity var(--transition-fast);
-    }
-
+    nav.links li { transition: opacity var(--transition-fast); }
     nav.links a {
       position: relative;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
+      display: inline-flex; align-items: center; gap: 0.35rem;
       padding: 0.45rem 0.9rem;
       border-radius: 999px;
       border: 1px solid transparent;
@@ -172,247 +164,190 @@
       background: radial-gradient(circle at 0 0, var(--accent-soft), transparent 55%);
       cursor: pointer;
       white-space: nowrap;
-      transition:
-        background var(--transition-fast),
-        border-color var(--transition-fast),
-        color var(--transition-fast),
-        opacity var(--transition-fast),
-        transform var(--transition-fast),
-        box-shadow var(--transition-fast);
+      transition: background var(--transition-fast), border-color var(--transition-fast),
+        color var(--transition-fast), opacity var(--transition-fast),
+        transform var(--transition-fast), box-shadow var(--transition-fast);
     }
-
-    nav.links a::after {
-      content: "";
-      position: absolute;
-      inset: 0.2rem;
-      border-radius: inherit;
-      border: 1px solid rgba(148, 163, 184, 0.35);
-      opacity: 0;
-      transition: opacity var(--transition-fast);
-    }
-
-    nav.links a:hover,
-    nav.links a:focus-visible {
+    nav.links a:hover, nav.links a:focus-visible {
       outline: none;
-      background: radial-gradient(circle at 10% 0%, rgba(56, 189, 248, 0.35), transparent 65%);
+      background: radial-gradient(circle at 10% 0%, rgba(56,189,248,0.35), transparent 65%);
       border-color: var(--accent);
       color: var(--link-hover);
       opacity: 1;
       transform: translateY(-1px);
-      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.85);
+      box-shadow: 0 10px 30px rgba(15,23,42,0.85);
+    }
+    nav.links li.fade { opacity: 0.25; }
+
+    /* ── Content sections ── */
+    .content {
+      max-width: 640px;
+      width: 100%;
+      text-align: left;
+    }
+    .content h3 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+      margin: 0 0 0.8rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid rgba(148,163,184,0.2);
+    }
+    .content p {
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: var(--muted);
+      margin: 0 0 0.6rem;
+    }
+    .content ul {
+      margin: 0 0 1.2rem;
+      padding: 0;
+      list-style: none;
+    }
+    .content li {
+      font-size: 0.82rem;
+      line-height: 1.5;
+      color: var(--muted);
+      padding: 0.3rem 0;
+    }
+    .content li + li {
+      border-top: 1px solid rgba(148,163,184,0.08);
+    }
+    .content a {
+      color: var(--fg);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(148,163,184,0.3);
+      transition: color var(--transition-fast), border-color var(--transition-fast);
+    }
+    .content a:hover {
+      color: var(--link-hover);
+      border-color: var(--accent);
+    }
+    .content .meta {
+      font-size: 0.72rem;
+      color: rgba(148,163,184,0.5);
+      margin-left: 0.3rem;
     }
 
-    nav.links a:hover::after,
-    nav.links a:focus-visible::after {
-      opacity: 0.45;
-    }
-
-    nav.links li.fade {
-      opacity: 0.25;
-    }
-
+    /* ── Avatar ── */
     .avatar {
       margin: 0;
       padding: 0.65rem;
       border-radius: var(--radius-lg);
-      background: radial-gradient(circle at 20% 0%, rgba(56, 189, 248, 0.24), transparent 55%);
-      border: 1px solid rgba(30, 64, 175, 0.9);
+      background: radial-gradient(circle at 20% 0%, rgba(56,189,248,0.24), transparent 55%);
+      border: 1px solid rgba(30,64,175,0.9);
       box-shadow: var(--shadow-soft);
     }
-
     .avatar img {
-      display: block;
-      max-width: 100%;
-      height: auto;
+      display: block; max-width: 100%; height: auto;
       border-radius: calc(var(--radius-lg) - 0.35rem);
       opacity: 0.96;
-      transform-origin: center center;
-      transition:
-        transform var(--transition-fast),
-        box-shadow var(--transition-fast),
-        opacity var(--transition-fast);
-      will-change: transform, box-shadow;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
     }
+    .avatar img:hover { opacity: 1; box-shadow: 0 22px 50px rgba(15,23,42,0.95); }
 
-    .avatar img:hover {
-      opacity: 1;
-      box-shadow: 0 22px 50px rgba(15, 23, 42, 0.95);
-    }
+    /* ── Crosshair ── */
+    .game-line { position: fixed; pointer-events: none; z-index: 0; }
+    #upper { top:0; left:0; width:0; height:100vh; display:flex; justify-content:flex-start; align-items:flex-start; }
+    #lateral { top:0; left:0; width:100vw; height:0; display:flex; justify-content:flex-start; align-items:flex-start; }
+    .game-line__bar { background:linear-gradient(to bottom,rgba(56,189,248,0.85),transparent); width:2px; height:0; box-shadow:0 0 22px rgba(56,189,248,0.68); }
+    #lateral-bar { background:linear-gradient(to right,rgba(56,189,248,0.85),transparent); width:0; height:2px; }
 
+    /* ── Footer ── */
     footer.site-footer {
-      position: relative;
-      z-index: 1;
+      position: relative; z-index: 1;
       padding: 0.8rem 1.5rem 1.4rem;
       text-align: center;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       color: var(--muted);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
+      letter-spacing: 0.1em;
     }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--link-hover); }
 
-    .noscript-hint {
-      display: block;
-      margin-top: 0.4rem;
-      font-style: italic;
-      letter-spacing: 0.04em;
-    }
-
-    .game-line {
-      position: fixed;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    #upper {
-      top: 0;
-      left: 0;
-      width: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: flex-start;
-      align-items: flex-start;
-    }
-
-    #lateral {
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 0;
-      display: flex;
-      justify-content: flex-start;
-      align-items: flex-start;
-    }
-
-    .game-line__bar {
-      background: linear-gradient(to bottom, rgba(56, 189, 248, 0.85), transparent);
-      width: 2px;
-      height: 0;
-      box-shadow: 0 0 22px rgba(56, 189, 248, 0.68);
-    }
-
-    #lateral-bar {
-      background: linear-gradient(to right, rgba(56, 189, 248, 0.85), transparent);
-      width: 0;
-      height: 2px;
-    }
-
-    /* prefers-reduced-motion */
     @media (prefers-reduced-motion: reduce) {
-      .avatar img {
-        transition: opacity 120ms ease-out;
-        transform: none !important;
-        box-shadow: var(--shadow-soft) !important;
-      }
-
-      #upper,
-      #lateral {
-        display: none;
-      }
+      .avatar img { transition: opacity 120ms ease-out; transform: none !important; box-shadow: var(--shadow-soft) !important; }
+      #upper, #lateral { display: none; }
     }
-
-    /* Mobile: 2x2 */
     @media (max-width: 640px) {
-      main.page {
-        padding-top: 3.5rem;
-      }
-
-      nav.links {
-        border-radius: 1.2rem;
-        padding: 0.9rem;
-        width: 100%;
-        max-width: 360px;
-      }
-
-      nav.links ul {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 0.6rem;
-      }
-
-      nav.links li {
-        width: 100%;
-      }
-
-      nav.links a {
-        width: 100%;
-        justify-content: center;
-        font-size: 0.8rem;
-        padding: 0.4rem 0.75rem;
-      }
-
-      .avatar {
-        max-width: 180px;
-      }
+      main.page { padding-top: 2.5rem; gap: 2rem; }
+      nav.links { border-radius: 1.2rem; padding: 0.9rem; width: 100%; max-width: 360px; }
+      nav.links ul { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 0.6rem; }
+      nav.links a { width: 100%; justify-content: center; font-size: 0.8rem; padding: 0.4rem 0.75rem; }
+      .avatar { max-width: 140px; }
     }
   </style>
 </head>
 <body>
-  <!-- game crosshair overlays -->
-  <div class="game-line" id="upper">
-    <div class="game-line__bar" id="upper-bar"></div>
-  </div>
-  <div class="game-line" id="lateral">
-    <div class="game-line__bar" id="lateral-bar"></div>
-  </div>
+  <div class="game-line" id="upper"><div class="game-line__bar" id="upper-bar"></div></div>
+  <div class="game-line" id="lateral"><div class="game-line__bar" id="lateral-bar"></div></div>
 
   <main id="main" class="page">
     <header class="hero">
-      <h1>Welcome</h1>
+      <h1>Francesco Carnielli</h1>
       <h2>
-        Francesco Carnielli
         <span class="aka">AKA</span>
         <code>hex7c0</code>
       </h2>
+      <p class="tagline">
+        I help startups and scale-ups build, scale, and fix their engineering organisations from founding stage to 70+ engineers across 10+ countries, fully remote.
+      </p>
     </header>
 
-    <nav class="links" id="nav" aria-label="Primary links">
+    <nav class="links" id="nav" aria-label="Profiles">
       <ul>
-        <li>
-          <a href="https://github.com/hex7c0" target="_blank" rel="me noopener noreferrer">
-            GitHub
-          </a>
-        </li>
-        <li>
-          <a href="https://gitlab.com/hex7c0" target="_blank" rel="me noopener noreferrer">
-            GitLab
-          </a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/in/francesco-carnielli/" target="_blank" rel="noopener noreferrer">
-            LinkedIn
-          </a>
-        </li>
-        <li>
-          <a href="mailto:francesco@carnielli.dev" rel="noopener noreferrer">
-            Email
-          </a>
-        </li>
+        <li><a href="https://www.linkedin.com/in/francesco-carnielli/" target="_blank" rel="me noopener noreferrer">LinkedIn</a></li>
+        <li><a href="https://github.com/hex7c0" target="_blank" rel="me noopener noreferrer">GitHub</a></li>
+        <li><a href="https://gitlab.com/hex7c0" target="_blank" rel="me noopener noreferrer">GitLab</a></li>
+        <li><a href="mailto:francesco@carnielli.dev">Email</a></li>
       </ul>
     </nav>
 
     <figure class="avatar" aria-hidden="false">
-      <img
-        id="stan"
-        src="stan.gif"
-        alt="Animated avatar of Francesco Carnielli"
-        width="95"
-        height="128"
-        loading="lazy"
-        decoding="async"
-      />
+      <img id="stan" src="stan.gif" alt="Francesco Carnielli" width="95" height="128" loading="lazy" decoding="async" />
     </figure>
+
+    <section class="content">
+      <h3>What I do</h3>
+      <ul>
+        <li>Engineering team structuring; hiring frameworks, career ladders</li>
+        <li>Technical due diligence for fundraising (Series A&ndash;D) and M&amp;A</li>
+        <li>Architecture reviews and platform modernisation</li>
+        <li>AI/ML strategy; recommendation systems, LLM products, RAG architectures</li>
+        <li>Delivery improvement via DORA metrics, OKRs, sprint predictability</li>
+      </ul>
+
+      <h3>Track record</h3>
+      <ul>
+        <li>Scaled <a href="https://everli.com" target="_blank" rel="noopener noreferrer">Everli</a> engineering from 2 to 70+ engineers</li>
+        <li>Handled 4000% COVID traffic spike with zero downtime</li>
+        <li>Cut EUR&nbsp;600k/year in SaaS costs through vendor renegotiation</li>
+        <li>Built a 93%-accuracy weather forecast model for 3M+ users at <a href="https://ignitia.info" target="_blank" rel="noopener noreferrer">Ignitia</a></li>
+        <li><a href="https://stanfordexeced.novoed.com/#!/courses/endeavor-tech-leaders-su21/statements/2482316" target="_blank" rel="noopener">Stanford GSB</a> executive program (2021)</li>
+      </ul>
+
+      <h3>Publications &amp; Talks</h3>
+      <ul>
+        <li><a href="https://web.archive.org/web/20251124163106/https://aiforgood.itu.int/speaker/francesco-carnielli/" target="_blank" rel="noopener">AI Innovation for Early Warnings for All</a> <span class="meta">ITU / AI for Good speaker, 2025</span></li>
+        <li><a href="https://web.archive.org/web/20251206194227/https:/www.kevel.com/customers/everli" target="_blank" rel="noopener">Everli monetizes with targeted sponsored listings</a> <span class="meta">Kevel Case Study, 2023</span></li>
+        <li><a href="https://web.archive.org/web/20230128145555/https://tech.everli.com/2021/05/03/the-making-of-a-manager/" target="_blank" rel="noopener">The making of a manager</a> <span class="meta">Everli Tech Blog, 2020</span></li>
+        <li><a href="https://web.archive.org/web/20201030065520/https://tech.everli.com/2020/07/07/how-we-handled-the-spike-of-more-than-4k-new-users-in-a-week" target="_blank" rel="noopener">How we handled a 4000% increase in new users in one week</a> <span class="meta">Everli Tech Blog, 2021</span></li>
+        <li>Geo-lookup matching between retail stores and customer addresses <span class="meta">Patent, 2019</span></li>
+        <li><a href="https://github.com/hex7c0/smIoT" target="_blank" rel="noopener">Sincronizzazione dei dati tramite protocolli HTTP e MQTT</a> <span class="meta">University of Verona, 2017</span></li>
+      </ul>
+    </section>
   </main>
 
   <footer class="site-footer">
-    <noscript>
-      <span class="noscript-hint">JavaScript is disabled, the interaction layer is unavailable.</span>
-    </noscript>
+    <a href="https://en.wikipedia.org/wiki/Verona" target="_blank" rel="noopener">Verona, IT</a>
+    &middot; Remote EMEA &middot;
+    <a href="mailto:francesco@carnielli.dev">francesco@carnielli.dev</a> &middot;
   </footer>
 
   <script>
     (() => {
       "use strict";
-
       const stan = document.getElementById("stan");
       const nav = document.getElementById("nav");
       const upper = document.getElementById("upper");
@@ -420,87 +355,36 @@
       const lateral = document.getElementById("lateral");
       const lateralBar = document.getElementById("lateral-bar");
       const linkItems = Array.from(nav.querySelectorAll("li"));
-
       let middleX = window.innerWidth / 2;
       let middleY = window.innerHeight / 2;
-
-      function updateMiddle() {
-        middleX = window.innerWidth / 2;
-        middleY = window.innerHeight / 2;
-      }
-
+      function updateMiddle() { middleX = window.innerWidth / 2; middleY = window.innerHeight / 2; }
       window.addEventListener("resize", updateMiddle);
-
-      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      const isCoarsePointer = window.matchMedia("(pointer: coarse)").matches;
-      const hasHover = window.matchMedia("(hover: hover)").matches;
-
-      // desktop Only
-      const enableMotion = !prefersReducedMotion && hasHover && !isCoarsePointer;
-
+      const enableMotion = !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        && window.matchMedia("(hover: hover)").matches
+        && !window.matchMedia("(pointer: coarse)").matches;
       if (enableMotion) {
-        let lastMouseEvent = null;
-        let frameRequested = false;
-
+        let lastMouseEvent = null, frameRequested = false;
         function handleMouseFrame() {
           frameRequested = false;
           if (!lastMouseEvent) return;
-
-          const x = lastMouseEvent.clientX;
-          const y = lastMouseEvent.clientY;
-
-          // crosshair lines
-          upper.style.left = `${String(x)}px`;
-          upperBar.style.height = `${String(y)}px`;
-
-          lateral.style.top = `${String(y)}px`;
-          lateralBar.style.width = `${String(x)}px`;
-
-          // avatar parallax/tilt
-          const dx = x - middleX;
-          const dy = middleY - y;
-
-          const rotateY = dx / 16;
-          const rotateX = dy / 12;
-          const scaleX = dx < 0 ? -1 : 1;
-
-          const shadowOffset = (rotateX - rotateY) / 8;
-
-          stan.style.transform =
-            "rotateY(" + rotateY + "deg) rotateX(" + rotateX + "deg) scaleX(" + scaleX + ")";
-          stan.style.boxShadow =
-            shadowOffset + "px " + shadowOffset + "px 22px rgba(15, 23, 42, 0.95)";
+          const x = lastMouseEvent.clientX, y = lastMouseEvent.clientY;
+          //upper.style.left = x + "px"; upperBar.style.height = y + "px";
+          //lateral.style.top = y + "px"; lateralBar.style.width = x + "px";
+          const dx = x - middleX, dy = middleY - y;
+          const rotateY = dx / 16, rotateX = dy / 12, scaleX = dx < 0 ? -1 : 1;
+          const s = (rotateX - rotateY) / 8;
+          stan.style.transform = "rotateY(" + rotateY + "deg) rotateX(" + rotateX + "deg) scaleX(" + scaleX + ")";
+          stan.style.boxShadow = s + "px " + s + "px 22px rgba(15,23,42,0.95)";
         }
-
-        window.addEventListener(
-          "mousemove",
-          function (event) {
-            lastMouseEvent = event;
-            if (!frameRequested) {
-              frameRequested = true;
-              window.requestAnimationFrame(handleMouseFrame);
-            }
-          },
-          { passive: true }
-        );
-
-        // link hover fading
-        linkItems.forEach(function (item) {
-          item.addEventListener("mouseenter", function () {
-            linkItems.forEach(function (li) {
-              li.classList.add("fade");
-            });
-            item.classList.remove("fade");
-          });
-
-          item.addEventListener("mouseleave", function () {
-            linkItems.forEach(function (li) {
-              li.classList.remove("fade");
-            });
-          });
+        window.addEventListener("mousemove", function(e) {
+          lastMouseEvent = e;
+          if (!frameRequested) { frameRequested = true; requestAnimationFrame(handleMouseFrame); }
+        }, { passive: true });
+        linkItems.forEach(function(item) {
+          item.addEventListener("mouseenter", function() { linkItems.forEach(function(li) { li.classList.add("fade"); }); item.classList.remove("fade"); });
+          item.addEventListener("mouseleave", function() { linkItems.forEach(function(li) { li.classList.remove("fade"); }); });
         });
       } else {
-        // mobile
         upper.style.display = "none";
         lateral.style.display = "none";
       }
