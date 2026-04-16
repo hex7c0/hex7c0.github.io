@@ -9,6 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="canonical" href="https://francesco.carnielli.dev/" />
+  <link rel="stylesheet" href="/style.css" />
 
   <meta property="og:title" content="Francesco Carnielli · hex7c0" />
   <meta property="og:description" content="CTO helping startups and scale-ups build, scale, and fix engineering organisations." />
@@ -17,7 +18,6 @@
   <meta name="theme-color" content="#020617" />
   <link rel="author" href="/humans.txt" />
 
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-HYYJ00WPV2"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -27,12 +27,10 @@
     gtag('config', 'G-HYYJ00WPV2');
   </script>
 
-  <!-- JSON-LD structured data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Person",
-    "@id": "https://francesco.carnielli.dev/#person",
     "name": "Francesco Carnielli",
     "jobTitle": "CTO",
     "url": "https://francesco.carnielli.dev",
@@ -46,6 +44,7 @@
       "https://www.linkedin.com/in/francesco-carnielli/",
       "https://github.com/hex7c0",
       "https://gitlab.com/hex7c0",
+      "https://leetcode.com/u/hex7c0/",
       "https://www.malt.com/profile/francescocarnielli",
       "https://www.gigx.com/user/francesco-carnielli",
       "https://aiforgood.itu.int/speaker/francesco-carnielli/"
@@ -64,233 +63,6 @@
   }
   </script>
 
-  <style>
-    :root {
-      --bg: #020617;
-      --bg-soft: #0b1120;
-      --fg: #e5e7eb;
-      --muted: #9ca3af;
-      --accent: #38bdf8;
-      --accent-soft: rgba(56, 189, 248, 0.18);
-      --link-hover: #7dd3fc;
-      --font-sans: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Fira Code", "JetBrains Mono", monospace;
-      --radius-lg: 0.75rem;
-      --radius-full: 999px;
-      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.75);
-      --transition-fast: 160ms ease-out;
-    }
-
-    *, *::before, *::after { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: var(--font-sans);
-      background:
-        radial-gradient(circle at 10% 0%, #1e293b 0, transparent 55%),
-        radial-gradient(circle at 90% 0%, #0f766e 0, transparent 55%),
-        radial-gradient(circle at 50% 100%, #1f2937 0, transparent 55%),
-        linear-gradient(180deg, var(--bg-soft), var(--bg));
-      color: var(--fg);
-      display: flex;
-      flex-direction: column;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-    }
-
-    main.page {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 3rem 1.5rem 2rem;
-      position: relative;
-      z-index: 1;
-      gap: 2.5rem;
-    }
-
-    /* ── Hero ── */
-    .hero {
-      max-width: 640px;
-      text-align: center;
-    }
-    .hero h1 {
-      margin: 0 0 0.25rem;
-      font-size: clamp(2.2rem, 3vw + 1rem, 3.1rem);
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-    .hero h2 {
-      margin: 0 0 0.6rem;
-      font-size: clamp(1rem, 1.2vw + 0.8rem, 1.35rem);
-      font-weight: 300;
-      opacity: 0.9;
-    }
-    .hero .tagline {
-      margin: 0;
-      font-size: 0.85rem;
-      color: var(--muted);
-      line-height: 1.55;
-      max-width: 520px;
-      margin-inline: auto;
-    }
-
-        .hero code {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
-        monospace;
-      padding: 0.12rem 0.45rem;
-      border-radius: var(--radius-full);
-      background: rgba(15, 23, 42, 0.82);
-      border: 1px solid rgba(148, 163, 184, 0.45);
-      font-size: 0.95em;
-    }
-
-    /* ── Nav pill ── */
-    nav.links {
-      padding: 1.1rem 1.25rem;
-      border-radius: 999px;
-      background: linear-gradient(135deg, rgba(15,23,42,0.9), rgba(15,23,42,0.95));
-      border: 1px solid rgba(148, 163, 184, 0.45);
-      box-shadow: var(--shadow-soft);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-    }
-    nav.links ul {
-      margin: 0; padding: 0; list-style: none;
-      display: flex; flex-wrap: wrap; gap: 0.4rem;
-      justify-content: center; align-items: center;
-    }
-    nav.links li { transition: opacity var(--transition-fast); }
-    nav.links a {
-      position: relative;
-      display: inline-flex; align-items: center; gap: 0.35rem;
-      padding: 0.45rem 0.9rem;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      font-size: 0.9rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      text-decoration: none;
-      color: var(--fg);
-      opacity: 0.9;
-      background: radial-gradient(circle at 0 0, var(--accent-soft), transparent 55%);
-      cursor: pointer;
-      white-space: nowrap;
-      transition: background var(--transition-fast), border-color var(--transition-fast),
-        color var(--transition-fast), opacity var(--transition-fast),
-        transform var(--transition-fast), box-shadow var(--transition-fast);
-    }
-    nav.links a:hover, nav.links a:focus-visible {
-      outline: none;
-      background: radial-gradient(circle at 10% 0%, rgba(56,189,248,0.35), transparent 65%);
-      border-color: var(--accent);
-      color: var(--link-hover);
-      opacity: 1;
-      transform: translateY(-1px);
-      box-shadow: 0 10px 30px rgba(15,23,42,0.85);
-    }
-    nav.links li.fade { opacity: 0.25; }
-
-    /* ── Content sections ── */
-    .content {
-      max-width: 640px;
-      width: 100%;
-      text-align: left;
-    }
-    .content h3 {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--accent);
-      margin: 0 0 0.8rem;
-      padding-bottom: 0.4rem;
-      border-bottom: 1px solid rgba(148,163,184,0.2);
-    }
-    .content p {
-      font-size: 0.85rem;
-      line-height: 1.6;
-      color: var(--muted);
-      margin: 0 0 0.6rem;
-    }
-    .content ul {
-      margin: 0 0 1.2rem;
-      padding: 0;
-      list-style: none;
-    }
-    .content li {
-      font-size: 0.82rem;
-      line-height: 1.5;
-      color: var(--muted);
-      padding: 0.3rem 0;
-    }
-    .content li + li {
-      border-top: 1px solid rgba(148,163,184,0.08);
-    }
-    .content a {
-      color: var(--fg);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(148,163,184,0.3);
-      transition: color var(--transition-fast), border-color var(--transition-fast);
-    }
-    .content a:hover {
-      color: var(--link-hover);
-      border-color: var(--accent);
-    }
-    .content .meta {
-      font-size: 0.72rem;
-      color: rgba(148,163,184,0.5);
-      margin-left: 0.3rem;
-    }
-
-    /* ── Avatar ── */
-    .avatar {
-      margin: 0;
-      padding: 0.65rem;
-      border-radius: var(--radius-lg);
-      background: radial-gradient(circle at 20% 0%, rgba(56,189,248,0.24), transparent 55%);
-      border: 1px solid rgba(30,64,175,0.9);
-      box-shadow: var(--shadow-soft);
-    }
-    .avatar img {
-      display: block; max-width: 100%; height: auto;
-      border-radius: calc(var(--radius-lg) - 0.35rem);
-      opacity: 0.96;
-      transition: transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
-    }
-    .avatar img:hover { opacity: 1; box-shadow: 0 22px 50px rgba(15,23,42,0.95); }
-
-    /* ── Crosshair ── */
-    .game-line { position: fixed; pointer-events: none; z-index: 0; }
-    #upper { top:0; left:0; width:0; height:100vh; display:flex; justify-content:flex-start; align-items:flex-start; }
-    #lateral { top:0; left:0; width:100vw; height:0; display:flex; justify-content:flex-start; align-items:flex-start; }
-    .game-line__bar { background:linear-gradient(to bottom,rgba(56,189,248,0.85),transparent); width:2px; height:0; box-shadow:0 0 22px rgba(56,189,248,0.68); }
-    #lateral-bar { background:linear-gradient(to right,rgba(56,189,248,0.85),transparent); width:0; height:2px; }
-
-    /* ── Footer ── */
-    footer.site-footer {
-      position: relative; z-index: 1;
-      padding: 0.8rem 1.5rem 1.4rem;
-      text-align: center;
-      font-size: 0.75rem;
-      color: var(--muted);
-      letter-spacing: 0.1em;
-    }
-    footer a { color: var(--muted); text-decoration: none; }
-    footer a:hover { color: var(--link-hover); }
-
-    @media (prefers-reduced-motion: reduce) {
-      .avatar img { transition: opacity 120ms ease-out; transform: none !important; box-shadow: var(--shadow-soft) !important; }
-      #upper, #lateral { display: none; }
-    }
-    @media (max-width: 640px) {
-      main.page { padding-top: 2.5rem; gap: 2rem; }
-      nav.links { border-radius: 1.2rem; padding: 0.9rem; width: 100%; max-width: 360px; }
-      nav.links ul { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 0.6rem; }
-      nav.links a { width: 100%; justify-content: center; font-size: 0.8rem; padding: 0.4rem 0.75rem; }
-      .avatar { max-width: 140px; }
-    }
-  </style>
 </head>
 <body>
   <div class="game-line" id="upper"><div class="game-line__bar" id="upper-bar"></div></div>
@@ -304,7 +76,7 @@
         <code>hex7c0</code>
       </h2>
       <p class="tagline">
-        I help startups and scale-ups build, scale, and fix their engineering organisations from founding stage to 70+ engineers across 10+ countries, fully remote.
+        I help startups and scale-ups build, scale, and fix their engineering organisations; from founding stage to 70+ engineers across 10+ countries, fully remote.
       </p>
     </header>
 
@@ -342,10 +114,10 @@
 
       <h3>Publications &amp; Talks</h3>
       <ul>
-        <li><a href="https://web.archive.org/web/20251124163106/https://aiforgood.itu.int/speaker/francesco-carnielli/" target="_blank" rel="noopener">AI Innovation for Early Warnings for All</a> <span class="meta">ITU / AI for Good speaker, 2025</span></li>
+        <li><a href="https://web.archive.org/web/20260218130214/https://www.itu.int/en/ITU-D/Emergency-Telecommunications/Pages/Events/2025/AI-for-EW4All-Hackathon-Finalists.aspx" target="_blank" rel="noopener">AI Innovation for Early Warnings for All</a> <span class="meta">ITU / AI for Good speaker, 2025</span></li>
         <li><a href="https://web.archive.org/web/20251206194227/https:/www.kevel.com/customers/everli" target="_blank" rel="noopener">Everli monetizes with targeted sponsored listings</a> <span class="meta">Kevel Case Study, 2023</span></li>
-        <li><a href="https://web.archive.org/web/20230128145555/https://tech.everli.com/2021/05/03/the-making-of-a-manager/" target="_blank" rel="noopener">The making of a manager</a> <span class="meta">Everli Tech Blog, 2020</span></li>
-        <li><a href="https://web.archive.org/web/20201030065520/https://tech.everli.com/2020/07/07/how-we-handled-the-spike-of-more-than-4k-new-users-in-a-week" target="_blank" rel="noopener">How we handled a 4000% increase in new users in one week</a> <span class="meta">Everli Tech Blog, 2021</span></li>
+        <li><a href="https://francesco.carnielli.dev/the-making-of-a-manager/" target="_blank">The making of a manager</a> <span class="meta">Tech Blog, 2021</span></li>
+        <li><a href="https://web.archive.org/web/20201030065520/https://tech.everli.com/2020/07/07/how-we-handled-the-spike-of-more-than-4k-new-users-in-a-week" target="_blank" rel="noopener">How we handled a 4000% increase in new users in one week</a> <span class="meta">Everli Tech Blog, 2020</span></li>
         <li>Geo-lookup matching between retail stores and customer addresses <span class="meta">Patent, 2019</span></li>
         <li><a href="https://github.com/hex7c0/smIoT" target="_blank" rel="noopener">Sincronizzazione dei dati tramite protocolli HTTP e MQTT</a> <span class="meta">University of Verona, 2017</span></li>
       </ul>
@@ -355,7 +127,7 @@
   <footer class="site-footer">
     <a href="https://en.wikipedia.org/wiki/Verona" target="_blank" rel="noopener">Verona, IT</a>
     &middot; Remote EMEA &middot;
-    <a href="mailto:francesco@carnielli.dev">francesco@carnielli.dev</a> &middot;
+    <a href="mailto:francesco@carnielli.dev">francesco@carnielli.dev</a>
   </footer>
 
   <script>
