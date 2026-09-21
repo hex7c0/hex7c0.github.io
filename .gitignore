@@ -1,3 +1,6 @@
 # macOS
 .DS_Store
 *.lighthouse.json
+
+# Local-only handover notes, deliberately not published with the site
+docs/

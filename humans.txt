@@ -1,6 +1,7 @@
 /* TEAM */
 
 CTO: Francesco Carnielli
+Business: Virtuale (legal name: Virtuale di Francesco Carnielli)
 Site: https://francesco.carnielli.dev
 Contact: francesco [at] carnielli.dev
 LinkedIn: linkedin.com/in/francesco-carnielli
