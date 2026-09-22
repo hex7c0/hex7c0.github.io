@@ -13,8 +13,6 @@
   <link rel="alternate" hreflang="en" href="https://francesco.carnielli.dev/">
   <link rel="alternate" hreflang="x-default" href="https://francesco.carnielli.dev/">
 
-  <link rel="preconnect" href="https://www.googletagmanager.com">
-  <link rel="preconnect" href="https://www.google-analytics.com">
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <style>
 :root {
@@ -90,6 +88,8 @@ main.page {
   opacity: 0.9;
   color: var(--fg);
 }
+/* Same face as the UA <code> style used by the handle next to it */
+.hero .aka { font-family: monospace; }
 .hero .tagline {
   margin: 0 auto;
   font-size: 0.9rem;
@@ -101,7 +101,7 @@ main.page {
 /* Nav pill */
 nav.links {
   padding: 1.1rem 1.25rem;
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   background: linear-gradient(135deg, rgba(15,23,42,0.9), rgba(15,23,42,0.95));
   border: 1px solid rgba(148, 163, 184, 0.45);
   box-shadow: var(--shadow-soft);
@@ -118,7 +118,7 @@ nav.links a {
   position: relative;
   display: inline-flex; align-items: center; gap: 0.35rem;
   padding: 0.45rem 0.9rem;
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   border: 1px solid transparent;
   font-size: 0.9rem;
   letter-spacing: 0.08em;
@@ -158,12 +158,6 @@ nav.links li.fade { opacity: 0.25; }
   margin: 0 0 0.9rem;
   padding-bottom: 0.4rem;
   border-bottom: 1px solid rgba(148,163,184,0.2);
-}
-.content p {
-  font-size: 0.92rem;
-  line-height: 1.65;
-  color: var(--muted);
-  margin: 0 0 0.7rem;
 }
 .content ul {
   margin: 0 0 1.4rem;
@@ -211,14 +205,7 @@ nav.links li.fade { opacity: 0.25; }
 }
 .avatar img:hover { opacity: 1; box-shadow: 0 22px 50px rgba(15,23,42,0.95); }
 
-/* Crosshair animation */
-.game-line { position: fixed; pointer-events: none; z-index: 0; }
-#upper { top:0; left:0; width:0; height:100vh; display:flex; justify-content:flex-start; align-items:flex-start; }
-#lateral { top:0; left:0; width:100vw; height:0; display:flex; justify-content:flex-start; align-items:flex-start; }
-.game-line__bar { background:linear-gradient(to bottom,rgba(56,189,248,0.85),transparent); width:2px; height:0; box-shadow:0 0 22px rgba(56,189,248,0.68); }
-#lateral-bar { background:linear-gradient(to right,rgba(56,189,248,0.85),transparent); width:0; height:2px; }
-
-/* Homepage footer */
+/* Footer */
 footer.site-footer {
   position: relative; z-index: 1;
   padding: 0.8rem 1.5rem 1.4rem;
@@ -229,169 +216,13 @@ footer.site-footer {
 }
 footer.site-footer a { color: var(--muted); text-decoration: none; }
 footer.site-footer a:hover { color: var(--link-hover); }
-
-/* =============================================================
- * Blog / article pages
- * ============================================================= */
-
-.article-page {
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 3rem 1.5rem 4rem;
-  flex: 1;
-}
-
-.breadcrumb {
-  font-size: 0.8rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  margin-bottom: 2.5rem;
-  color: var(--muted);
-}
-.breadcrumb a {
-  color: var(--muted);
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
-}
-.breadcrumb a:hover { color: var(--link-hover); border-bottom-color: var(--accent); }
-
-article header {
-  margin-bottom: 3rem;
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid rgba(148, 163, 184, 0.15);
-}
-article h1 {
-  font-size: clamp(1.8rem, 2.5vw + 1rem, 2.6rem);
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  color: var(--fg);
-  margin: 0 0 1rem;
-  line-height: 1.25;
-}
-article .meta {
-  font-size: 0.8rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-article .meta a {
-  color: var(--muted);
-  text-decoration: none;
-  border-bottom: 1px solid rgba(148, 163, 184, 0.3);
-}
-article .meta a:hover { color: var(--link-hover); border-color: var(--accent); }
-
-/* Disclaimer */
-.disclaimer {
-  background: rgba(15, 23, 42, 0.6);
-  border-left: 3px solid var(--accent);
-  padding: 1rem 1.2rem;
-  margin: 0 0 2rem;
-  font-size: 0.92rem;
-  color: var(--muted);
-  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
-}
-.disclaimer strong { color: var(--fg); }
-.disclaimer a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent); }
-.disclaimer a:hover { color: var(--link-hover); }
-
-/* Article body */
-article h2 {
-  font-size: 1.35rem;
-  color: var(--fg);
-  margin: 2.8rem 0 1rem;
-  padding-bottom: 0.3rem;
-  border-bottom: 1px solid rgba(148, 163, 184, 0.15);
-  letter-spacing: 0.02em;
-}
-article p {
-  margin: 0 0 1.3rem;
-  font-size: 1rem;
-  line-height: 1.75;
-}
-article ul {
-  margin: 0 0 1.5rem;
-  padding-left: 1.4rem;
-}
-article li {
-  margin-bottom: 0.6rem;
-  font-size: 0.98rem;
-  line-height: 1.65;
-}
-article blockquote {
-  margin: 1.8rem 0;
-  padding: 1rem 1.4rem;
-  border-left: 3px solid var(--accent);
-  background: rgba(56, 189, 248, 0.06);
-  font-style: normal;
-  color: var(--fg);
-  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
-  font-size: 1.02rem;
-}
-article em { color: var(--fg); font-style: italic; }
-article strong { color: var(--fg); }
-article a {
-  color: var(--fg);
-  text-decoration: none;
-  border-bottom: 1px solid rgba(148, 163, 184, 0.4);
-}
-article a:hover { color: var(--link-hover); border-color: var(--accent); }
-
-article footer {
-  margin-top: 3rem;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(148, 163, 184, 0.15);
-  font-size: 0.85rem;
-  color: var(--muted);
-}
-article footer p { margin: 0.4rem 0; }
-article footer .tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  margin-top: 1rem;
-}
-article footer .tag {
-  padding: 0.25rem 0.7rem;
-  border-radius: 999px;
-  background: rgba(56, 189, 248, 0.1);
-  border: 1px solid rgba(56, 189, 248, 0.25);
-  color: var(--accent);
-  font-size: 0.72rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.bottom-nav {
-  margin-top: 3rem;
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-.bottom-nav a {
-  font-size: 0.85rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 0.5rem 1rem;
-  border-radius: 999px;
-  border: 1px solid rgba(148, 163, 184, 0.3);
-  color: var(--fg);
-  text-decoration: none;
-  transition: border-color var(--transition-fast), color var(--transition-fast), background var(--transition-fast);
-}
-.bottom-nav a:hover {
-  border-color: var(--accent);
-  color: var(--link-hover);
-  background: rgba(56, 189, 248, 0.08);
-}
+.legal { display: inline-block; font-size: 0.72rem; opacity: 0.7; margin-top: 0.45rem; }
 
 /* =============================================================
  * Reduced motion
  * ============================================================= */
 @media (prefers-reduced-motion: reduce) {
   .avatar img { transition: opacity 120ms ease-out; transform: none !important; box-shadow: var(--shadow-soft) !important; }
-  #upper, #lateral { display: none; }
 }
 
 /* =============================================================
@@ -403,10 +234,6 @@ article footer .tag {
   nav.links ul { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 0.6rem; }
   nav.links a { width: 100%; justify-content: center; font-size: 0.8rem; padding: 0.4rem 0.75rem; }
   .avatar { max-width: 140px; }
-
-  .article-page { padding: 2rem 1.2rem 3rem; }
-  article p { font-size: 0.96rem; }
-  article li { font-size: 0.94rem; }
 }
   </style>
   <link rel="author" href="/humans.txt" />
@@ -425,9 +252,6 @@ article footer .tag {
   <meta property="og:image:alt" content="Francesco Carnielli" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Francesco Carnielli · hex7c0 · CTO" />
-  <meta name="twitter:description" content="CTO helping startups and scale-ups build, scale, and fix engineering organisations." />
-  <meta name="twitter:image" content="https://francesco.carnielli.dev/1620806914573.jpeg" />
   <meta name="twitter:image:alt" content="Francesco Carnielli" />
 
   <script>
@@ -447,138 +271,166 @@ article footer .tag {
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "ProfilePage",
-  "@id": "https://francesco.carnielli.dev/#profile",
-  "url": "https://francesco.carnielli.dev/",
-  "name": "Francesco Carnielli · hex7c0 · CTO",
-  "description": "Personal profile page for Francesco Carnielli, CTO and engineering leader.",
-  "inLanguage": "en",
-  "dateCreated": "2026-01-01T09:00:00+02:00",
-  "dateModified": "2026-09-21T09:00:00+02:00",
-  "primaryImageOfPage": {
-    "@type": "ImageObject",
-    "@id": "https://francesco.carnielli.dev/#profile-image",
-    "url": "https://francesco.carnielli.dev/1620806914573.jpeg",
-    "contentUrl": "https://francesco.carnielli.dev/1620806914573.jpeg",
-    "caption": "Francesco Carnielli"
-  },
-  "mainEntity": {
-    "@type": "Person",
-    "@id": "https://francesco.carnielli.dev/#person",
-    "name": "Francesco Carnielli",
-    "givenName": "Francesco",
-    "familyName": "Carnielli",
-    "alternateName": "hex7c0",
-    "identifier": "hex7c0",
-    "jobTitle": "Chief Technology Officer",
-    "hasOccupation": {
-      "@type": "Occupation",
-      "name": "Chief Technology Officer",
-      "occupationLocation": {
-        "@type": "City",
-        "name": "Verona, Italy"
+  "@graph": [
+    {
+      "@type": "ProfilePage",
+      "@id": "https://francesco.carnielli.dev/#profile",
+      "url": "https://francesco.carnielli.dev/",
+      "name": "Francesco Carnielli · hex7c0 · CTO",
+      "description": "Personal profile page for Francesco Carnielli, CTO and engineering leader.",
+      "inLanguage": "en",
+      "dateCreated": "2026-01-01T09:00:00+01:00",
+      "dateModified": "2026-09-22T09:00:00+02:00",
+      "isPartOf": {
+        "@id": "https://francesco.carnielli.dev/#website"
+      },
+      "primaryImageOfPage": {
+        "@id": "https://francesco.carnielli.dev/#profile-image"
+      },
+      "mainEntity": {
+        "@id": "https://francesco.carnielli.dev/#person"
       }
     },
-    "description": "CTO and engineering leader helping startups and scale-ups build teams, improve architecture, run technical due diligence, and deliver AI/ML products.",
-    "url": "https://francesco.carnielli.dev/",
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "https://francesco.carnielli.dev/#webpage",
-      "url": "https://francesco.carnielli.dev/"
-    },
-    "email": "francesco@carnielli.dev",
-    "image": {
+    {
       "@type": "ImageObject",
       "@id": "https://francesco.carnielli.dev/#profile-image",
       "url": "https://francesco.carnielli.dev/1620806914573.jpeg",
       "contentUrl": "https://francesco.carnielli.dev/1620806914573.jpeg",
       "caption": "Francesco Carnielli"
     },
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Verona",
-      "addressRegion": "VR",
-      "addressCountry": "IT"
-    },
-    "sameAs": [
-      "https://www.linkedin.com/in/francesco-carnielli/",
-      "https://github.com/hex7c0",
-      "https://gitlab.com/hex7c0",
-      "https://leetcode.com/u/hex7c0/",
-      "https://stackoverflow.com/users/6843241",
-      "https://www.npmjs.com/~hex7c0",
-      "https://www.malt.com/profile/francescocarnielli",
-      "https://www.gigx.com/user/francesco-carnielli",
-      "https://aiforgood.itu.int/speaker/francesco-carnielli/",
-      "https://g.page/r/CQJz8qEy3Dj7EBM/"
-    ],
-    "knowsAbout": [
-      "Software Engineering",
-      "Engineering Leadership",
-      "Team Scaling",
-      "Technical Due Diligence",
-      "AI/ML Strategy",
-      "DORA Metrics",
-      "E-Commerce"
-    ],
-    "knowsLanguage": [
-      { "@type": "Language", "name": "Italian", "alternateName": "it" },
-      { "@type": "Language", "name": "English", "alternateName": "en" }
-    ],
-    "alumniOf": [
-      {
-        "@type": "EducationalOrganization",
-        "name": "Stanford University Graduate School of Business",
-        "url": "https://www.gsb.stanford.edu/"
-      },
-      {
-        "@type": "EducationalOrganization",
-        "name": "University of Verona",
-        "url": "https://www.univr.it/"
-      }
-    ],
-    "owns": { "@id": "https://francesco.carnielli.dev/#business" },
-    "worksFor": {
-      "@type": "Organization",
-      "name": "Ignitia",
-      "url": "https://ignitia.info"
-    },
-    "affiliation": [
-      { "@type": "Organization", "name": "Everli", "url": "https://everli.com" },
-      { "@type": "Organization", "name": "Ignitia", "url": "https://ignitia.info" },
-      { "@type": "Organization", "name": "New Digital Intelligence", "url": "https://new-digital-intelligence.com/" },
-      { "@type": "Organization", "name": "PixelGate", "url": "https://pixelgate.dog/" }
-    ],
-    "subjectOf": [
-      {
-        "@type": "Article",
-        "url": "https://www.itu.int/en/ITU-D/Emergency-Telecommunications/Pages/Events/2025/AI-for-EW4All-Hackathon-Finalists.aspx",
-        "headline": "AI for Early Warnings for All Innovation Challenge: Top Four Finalists",
-        "publisher": {
-          "@type": "Organization",
-          "name": "International Telecommunication Union",
-          "url": "https://www.itu.int/"
+    {
+      "@type": "Person",
+      "@id": "https://francesco.carnielli.dev/#person",
+      "name": "Francesco Carnielli",
+      "givenName": "Francesco",
+      "familyName": "Carnielli",
+      "alternateName": "hex7c0",
+      "identifier": "hex7c0",
+      "jobTitle": "Chief Technology Officer",
+      "hasOccupation": {
+        "@type": "Occupation",
+        "name": "Chief Technology Officer",
+        "occupationLocation": {
+          "@type": "City",
+          "name": "Verona, Italy"
         }
       },
-      {
-        "@type": "Article",
-        "url": "https://www.kevel.com/customers/everli",
-        "headline": "Everli monetizes with targeted sponsored listings",
-        "publisher": {
-          "@type": "Organization",
-          "name": "Kevel",
-          "url": "https://www.kevel.com/"
+      "description": "CTO and engineering leader helping startups and scale-ups build teams, improve architecture, run technical due diligence, and deliver AI/ML products.",
+      "url": "https://francesco.carnielli.dev/",
+      "mainEntityOfPage": {
+        "@id": "https://francesco.carnielli.dev/#profile"
+      },
+      "email": "francesco@carnielli.dev",
+      "image": {
+        "@id": "https://francesco.carnielli.dev/#profile-image"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Verona",
+        "addressRegion": "VR",
+        "addressCountry": "IT"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/francesco-carnielli/",
+        "https://github.com/hex7c0",
+        "https://gitlab.com/hex7c0",
+        "https://leetcode.com/u/hex7c0/",
+        "https://stackoverflow.com/users/6843241",
+        "https://www.npmjs.com/~hex7c0",
+        "https://www.malt.com/profile/francescocarnielli",
+        "https://www.gigx.com/user/francesco-carnielli",
+        "https://aiforgood.itu.int/speaker/francesco-carnielli/"
+      ],
+      "knowsAbout": [
+        "Software Engineering",
+        "Engineering Leadership",
+        "Team Scaling",
+        "Technical Due Diligence",
+        "AI/ML Strategy",
+        "DORA Metrics",
+        "E-Commerce"
+      ],
+      "knowsLanguage": [
+        {
+          "@type": "Language",
+          "name": "Italian",
+          "alternateName": "it"
+        },
+        {
+          "@type": "Language",
+          "name": "English",
+          "alternateName": "en"
         }
-      }
-    ]
-  }
-}
-  </script>
-
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
+      ],
+      "alumniOf": [
+        {
+          "@type": "EducationalOrganization",
+          "name": "Stanford University Graduate School of Business",
+          "url": "https://www.gsb.stanford.edu/"
+        },
+        {
+          "@type": "EducationalOrganization",
+          "name": "University of Verona",
+          "url": "https://www.univr.it/"
+        }
+      ],
+      "owns": {
+        "@id": "https://francesco.carnielli.dev/#business"
+      },
+      "worksFor": {
+        "@type": "Organization",
+        "name": "New Digital Intelligence",
+        "url": "https://new-digital-intelligence.com/"
+      },
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "Everli",
+          "url": "https://everli.com"
+        },
+        {
+          "@type": "Organization",
+          "name": "Ignitia",
+          "url": "https://ignitia.info"
+        },
+        {
+          "@type": "Organization",
+          "name": "New Digital Intelligence",
+          "url": "https://new-digital-intelligence.com/"
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://pixelgate.dog/#org",
+          "name": "PixelGate",
+          "url": "https://pixelgate.dog/",
+          "sameAs": [
+            "https://maps.google.com/?cid=12820802307592881686"
+          ]
+        }
+      ],
+      "subjectOf": [
+        {
+          "@type": "Article",
+          "url": "https://www.itu.int/en/ITU-D/Emergency-Telecommunications/Pages/Events/2025/AI-for-EW4All-Hackathon-Finalists.aspx",
+          "headline": "AI for Early Warnings for All Innovation Challenge: Top Four Finalists",
+          "publisher": {
+            "@type": "Organization",
+            "name": "International Telecommunication Union",
+            "url": "https://www.itu.int/"
+          }
+        },
+        {
+          "@type": "Article",
+          "url": "https://www.kevel.com/customers/everli",
+          "headline": "Everli monetizes with targeted sponsored listings",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Kevel",
+            "url": "https://www.kevel.com/"
+          }
+        }
+      ]
+    },
     {
       "@type": "WebSite",
       "@id": "https://francesco.carnielli.dev/#website",
@@ -587,16 +439,10 @@ article footer .tag {
       "description": "Personal website of Francesco Carnielli, CTO and engineering leader.",
       "inLanguage": "en",
       "publisher": {
-        "@type": "Person",
-        "@id": "https://francesco.carnielli.dev/#person",
-        "name": "Francesco Carnielli",
-        "url": "https://francesco.carnielli.dev/"
+        "@id": "https://francesco.carnielli.dev/#person"
       },
       "author": {
-        "@type": "Person",
-        "@id": "https://francesco.carnielli.dev/#person",
-        "name": "Francesco Carnielli",
-        "url": "https://francesco.carnielli.dev/"
+        "@id": "https://francesco.carnielli.dev/#person"
       }
     },
     {
@@ -609,25 +455,17 @@ article footer .tag {
       "datePublished": "2021-05-03T09:00:00+02:00",
       "dateModified": "2026-05-04T09:00:00+02:00",
       "author": {
-        "@type": "Person",
-        "@id": "https://francesco.carnielli.dev/#person",
-        "name": "Francesco Carnielli",
-        "url": "https://francesco.carnielli.dev/"
+        "@id": "https://francesco.carnielli.dev/#person"
       },
       "publisher": {
-        "@type": "Person",
-        "@id": "https://francesco.carnielli.dev/#person",
-        "name": "Francesco Carnielli",
-        "url": "https://francesco.carnielli.dev/"
+        "@id": "https://francesco.carnielli.dev/#person"
       },
       "image": {
-        "@type": "ImageObject",
-        "@id": "https://francesco.carnielli.dev/#profile-image",
-        "url": "https://francesco.carnielli.dev/1620806914573.jpeg",
-        "contentUrl": "https://francesco.carnielli.dev/1620806914573.jpeg",
-        "caption": "Francesco Carnielli"
+        "@id": "https://francesco.carnielli.dev/#profile-image"
       },
-      "isPartOf": { "@id": "https://francesco.carnielli.dev/#website" }
+      "isPartOf": {
+        "@id": "https://francesco.carnielli.dev/#website"
+      }
     },
     {
       "@type": "BlogPosting",
@@ -638,10 +476,7 @@ article footer .tag {
       "inLanguage": "en",
       "datePublished": "2020-07-07T09:00:00+02:00",
       "author": {
-        "@type": "Person",
-        "@id": "https://francesco.carnielli.dev/#person",
-        "name": "Francesco Carnielli",
-        "url": "https://francesco.carnielli.dev/"
+        "@id": "https://francesco.carnielli.dev/#person"
       },
       "publisher": {
         "@type": "Organization",
@@ -649,11 +484,7 @@ article footer .tag {
         "url": "https://everli.com"
       },
       "image": {
-        "@type": "ImageObject",
-        "@id": "https://francesco.carnielli.dev/#profile-image",
-        "url": "https://francesco.carnielli.dev/1620806914573.jpeg",
-        "contentUrl": "https://francesco.carnielli.dev/1620806914573.jpeg",
-        "caption": "Francesco Carnielli"
+        "@id": "https://francesco.carnielli.dev/#profile-image"
       }
     },
     {
@@ -663,27 +494,21 @@ article footer .tag {
       "name": "Sincronizzazione dei dati tramite protocolli HTTP e MQTT",
       "description": "University of Verona research work on data synchronisation using HTTP and MQTT protocols.",
       "inLanguage": "it",
-      "datePublished": "2017-01-01T09:00:00+02:00",
+      "datePublished": "2017",
       "author": {
-        "@type": "Person",
-        "@id": "https://francesco.carnielli.dev/#person",
-        "name": "Francesco Carnielli",
-        "url": "https://francesco.carnielli.dev/"
+        "@id": "https://francesco.carnielli.dev/#person"
       }
     },
     {
       "@type": "SoftwareSourceCode",
       "@id": "https://francesco.carnielli.dev/#encryptopy",
-      "url": "https://francesco.carnielli.dev/EncryptoPy",
+      "url": "https://francesco.carnielli.dev/EncryptoPy/",
       "name": "EncryptoPy",
       "description": "Python encryption utility.",
       "programmingLanguage": "Python",
-      "datePublished": "2017-01-01T09:00:00+02:00",
+      "datePublished": "2017",
       "author": {
-        "@type": "Person",
-        "@id": "https://francesco.carnielli.dev/#person",
-        "name": "Francesco Carnielli",
-        "url": "https://francesco.carnielli.dev/"
+        "@id": "https://francesco.carnielli.dev/#person"
       },
       "codeRepository": "https://github.com/hex7c0/EncryptoPy"
     },
@@ -696,10 +521,7 @@ article footer .tag {
       "inLanguage": "en",
       "datePublished": "2019",
       "author": {
-        "@type": "Person",
-        "@id": "https://francesco.carnielli.dev/#person",
-        "name": "Francesco Carnielli",
-        "url": "https://francesco.carnielli.dev/"
+        "@id": "https://francesco.carnielli.dev/#person"
       }
     },
     {
@@ -710,9 +532,19 @@ article footer .tag {
       "vatID": "IT05069740230",
       "taxID": "05069740230",
       "url": "https://francesco.carnielli.dev/",
-      "image": { "@id": "https://francesco.carnielli.dev/#profile-image" },
-      "founder": { "@id": "https://francesco.carnielli.dev/#person" },
-      "areaServed": { "@type": "Place", "name": "Europe" },
+      "image": {
+        "@id": "https://francesco.carnielli.dev/#profile-image"
+      },
+      "founder": {
+        "@id": "https://francesco.carnielli.dev/#person"
+      },
+      "subOrganization": {
+        "@id": "https://pixelgate.dog/#org"
+      },
+      "areaServed": {
+        "@type": "Place",
+        "name": "Europe"
+      },
       "serviceType": [
         "Software consulting",
         "Technical due diligence",
@@ -722,7 +554,10 @@ article footer .tag {
       "address": {
         "@type": "PostalAddress",
         "addressCountry": "IT"
-      }
+      },
+      "sameAs": [
+        "https://maps.google.com/?cid=18102460812239205122"
+      ]
     }
   ]
 }
@@ -730,9 +565,6 @@ article footer .tag {
 
 </head>
 <body>
-  <div class="game-line" id="upper"><div class="game-line__bar" id="upper-bar"></div></div>
-  <div class="game-line" id="lateral"><div class="game-line__bar" id="lateral-bar"></div></div>
-
   <main id="main" class="page">
     <header class="hero">
       <h1>Francesco Carnielli</h1>
@@ -749,15 +581,15 @@ article footer .tag {
 
     <nav class="links" id="nav" aria-label="Profiles">
       <ul>
-        <li><a href="https://www.linkedin.com/in/francesco-carnielli/" target="_blank" rel="me noopener noreferrer">LinkedIn</a></li>
-        <li><a href="https://github.com/hex7c0" target="_blank" rel="me noopener noreferrer">GitHub</a></li>
-        <li><a href="https://gitlab.com/hex7c0" target="_blank" rel="me noopener noreferrer">GitLab</a></li>
+        <li><a href="https://www.linkedin.com/in/francesco-carnielli/" target="_blank" rel="me noopener">LinkedIn</a></li>
+        <li><a href="https://github.com/hex7c0" target="_blank" rel="me noopener">GitHub</a></li>
+        <li><a href="https://gitlab.com/hex7c0" target="_blank" rel="me noopener">GitLab</a></li>
         <li><a href="mailto:francesco@carnielli.dev">Email</a></li>
       </ul>
     </nav>
 
-    <figure class="avatar" aria-hidden="false">
-      <img id="stan" src="stan.gif" alt="Site avatar: Stan, the animated pixel-art salesman in a checkered jacket" width="95" height="128" loading="lazy" decoding="async" />
+    <figure class="avatar">
+      <img id="stan" src="stan.gif" alt="Site avatar: Stan, the animated pixel-art salesman in a checkered jacket" width="95" height="128" decoding="async" />
     </figure>
 
     <section class="content">
@@ -772,22 +604,22 @@ article footer .tag {
 
       <h3>Track record</h3>
       <ul>
-        <li>Scaled <a href="https://everli.com" target="_blank" rel="noopener noreferrer">Everli</a> engineering from 2 to 70+ engineers</li>
+        <li>Scaled <a href="https://everli.com" target="_blank" rel="noopener">Everli</a> engineering from 2 to 70+ engineers</li>
         <li>Handled 4000% COVID traffic spike with zero downtime</li>
         <li>Cut EUR&nbsp;600k/year in SaaS costs through vendor renegotiation</li>
-        <li>Built a 93%-accuracy weather forecast model for 3M+ users at <a href="https://ignitia.info" target="_blank" rel="noopener noreferrer">Ignitia</a></li>
+        <li>Built a 93%-accuracy weather forecast model for 3M+ users at <a href="https://ignitia.info" target="_blank" rel="noopener">Ignitia</a></li>
         <li><a href="https://stanfordexeced.novoed.com/#!/courses/endeavor-tech-leaders-su21/statements/2482316" target="_blank" rel="noopener">Stanford GSB</a> executive program (2021)</li>
       </ul>
 
       <h3>Publications &amp; Talks</h3>
       <ul>
         <li><a href="https://web.archive.org/web/20260218130214/https://www.itu.int/en/ITU-D/Emergency-Telecommunications/Pages/Events/2025/AI-for-EW4All-Hackathon-Finalists.aspx" target="_blank" rel="noopener">AI Innovation for Early Warnings for All</a> <span class="meta">ITU / AI for Good speaker, 2025</span></li>
-        <li><a href="https://web.archive.org/web/20251206194227/https:/www.kevel.com/customers/everli" target="_blank" rel="noopener">Everli monetizes with targeted sponsored listings</a> <span class="meta">Kevel Case Study, 2023</span></li>
+        <li><a href="https://web.archive.org/web/20251206194227/https://www.kevel.com/customers/everli" target="_blank" rel="noopener">Everli monetizes with targeted sponsored listings</a> <span class="meta">Kevel Case Study, 2023</span></li>
         <li><a href="/the-making-of-a-manager/">The making of a manager</a> <span class="meta">Tech Blog, 2021</span></li>
         <li><a href="https://web.archive.org/web/20201030065520/https://tech.everli.com/2020/07/07/how-we-handled-the-spike-of-more-than-4k-new-users-in-a-week" target="_blank" rel="noopener">How we handled a 4000% increase in new users in one week</a> <span class="meta">Everli Tech Blog, 2020</span></li>
         <li>Geo-lookup matching between retail stores and customer addresses <span class="meta">Patent, 2019</span></li>
         <li><a href="https://github.com/hex7c0/smIoT" target="_blank" rel="noopener" lang="it" hreflang="it">Sincronizzazione dei dati tramite protocolli HTTP e MQTT</a> <span class="meta">University of Verona, 2017</span></li>
-        <li><a href="/EncryptoPy">Python encryption utility</a> <span class="meta">Github, 2017</span></li>
+        <li><a href="/EncryptoPy/">Python encryption utility</a> <span class="meta">GitHub, 2017</span></li>
       </ul>
     </section>
   </main>
@@ -797,52 +629,39 @@ article footer .tag {
     &middot; Remote EMEA &middot;
     <a href="mailto:francesco@carnielli.dev">francesco@carnielli.dev</a>
     <br />
-    <span class="legal" style="display:inline-block;margin-top:0.45rem;font-size:0.72rem;opacity:0.7">Virtuale di Francesco Carnielli &middot; P. IVA 05069740230</span>
+    <span class="legal">Virtuale di Francesco Carnielli &middot; P. IVA 05069740230</span>
   </footer>
 
   <script>
     (() => {
       "use strict";
-      const stan = document.getElementById("stan");
-      const nav = document.getElementById("nav");
-      const upper = document.getElementById("upper");
-      const upperBar = document.getElementById("upper-bar");
-      const lateral = document.getElementById("lateral");
-      const lateralBar = document.getElementById("lateral-bar");
-      const linkItems = Array.from(nav.querySelectorAll("li"));
-      let middleX = window.innerWidth / 2;
-      let middleY = window.innerHeight / 2;
-      function updateMiddle() { middleX = window.innerWidth / 2; middleY = window.innerHeight / 2; }
-      window.addEventListener("resize", updateMiddle);
       const enableMotion = !window.matchMedia("(prefers-reduced-motion: reduce)").matches
         && window.matchMedia("(hover: hover)").matches
         && !window.matchMedia("(pointer: coarse)").matches;
-      if (enableMotion) {
-        let lastMouseEvent = null, frameRequested = false;
-        function handleMouseFrame() {
-          frameRequested = false;
-          if (!lastMouseEvent) return;
-          const x = lastMouseEvent.clientX, y = lastMouseEvent.clientY;
-          //upper.style.left = x + "px"; upperBar.style.height = y + "px";
-          //lateral.style.top = y + "px"; lateralBar.style.width = x + "px";
-          const dx = x - middleX, dy = middleY - y;
-          const rotateY = dx / 16, rotateX = dy / 12, scaleX = dx < 0 ? -1 : 1;
-          const s = (rotateX - rotateY) / 8;
-          stan.style.transform = "rotateY(" + rotateY + "deg) rotateX(" + rotateX + "deg) scaleX(" + scaleX + ")";
-          stan.style.boxShadow = s + "px " + s + "px 22px rgba(15,23,42,0.95)";
-        }
-        window.addEventListener("mousemove", function(e) {
-          lastMouseEvent = e;
-          if (!frameRequested) { frameRequested = true; requestAnimationFrame(handleMouseFrame); }
-        }, { passive: true });
-        linkItems.forEach(function(item) {
-          item.addEventListener("mouseenter", function() { linkItems.forEach(function(li) { li.classList.add("fade"); }); item.classList.remove("fade"); });
-          item.addEventListener("mouseleave", function() { linkItems.forEach(function(li) { li.classList.remove("fade"); }); });
-        });
-      } else {
-        upper.style.display = "none";
-        lateral.style.display = "none";
+      if (!enableMotion) return;
+      const stan = document.getElementById("stan");
+      const linkItems = Array.from(document.getElementById("nav").querySelectorAll("li"));
+      let middleX = window.innerWidth / 2;
+      let middleY = window.innerHeight / 2;
+      window.addEventListener("resize", function() { middleX = window.innerWidth / 2; middleY = window.innerHeight / 2; });
+      let lastMouseEvent = null, frameRequested = false;
+      function handleMouseFrame() {
+        frameRequested = false;
+        if (!lastMouseEvent) return;
+        const dx = lastMouseEvent.clientX - middleX, dy = middleY - lastMouseEvent.clientY;
+        const rotateY = dx / 16, rotateX = dy / 12, scaleX = dx < 0 ? -1 : 1;
+        const s = (rotateX - rotateY) / 8;
+        stan.style.transform = "rotateY(" + rotateY + "deg) rotateX(" + rotateX + "deg) scaleX(" + scaleX + ")";
+        stan.style.boxShadow = s + "px " + s + "px 22px rgba(15,23,42,0.95)";
       }
+      window.addEventListener("mousemove", function(e) {
+        lastMouseEvent = e;
+        if (!frameRequested) { frameRequested = true; requestAnimationFrame(handleMouseFrame); }
+      }, { passive: true });
+      linkItems.forEach(function(item) {
+        item.addEventListener("mouseenter", function() { linkItems.forEach(function(li) { li.classList.add("fade"); }); item.classList.remove("fade"); });
+        item.addEventListener("mouseleave", function() { linkItems.forEach(function(li) { li.classList.remove("fade"); }); });
+      });
     })();
   </script>
 </body>
